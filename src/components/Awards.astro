@@ -1,0 +1,22 @@
+---
+import Section from "./Section.astro";
+import type { AwardProps } from "@types";
+
+interface Props {
+  awards: AwardProps[];
+}
+
+const { awards } = Astro.props;
+---
+
+<Section text="Awards" href="awards">
+  <div class="grid gap-4">
+    {awards.map(({ title, issuer, year, description }) => (
+      <div class="rounded-xl border border-neutral/20 bg-black p-4">
+        <h4 class="font-medium text-lg text-white">{title}</h4>
+        {issuer || year ? <p class="text-sm text-neutral">{issuer} {issuer && year ? `· ${year}` : year}</p> : null}
+        {description ? <p class="mt-2 text-neutral">{description}</p> : null}
+      </div>
+    ))}
+  </div>
+</Section>

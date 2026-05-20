@@ -1,0 +1,29 @@
+---
+import Section from "./Section.astro";
+import type { ResearchProps } from "@types";
+
+interface Props {
+  research: ResearchProps[];
+}
+
+const { research } = Astro.props;
+---
+
+<Section text="Research" href="research">
+  <div class="grid gap-6">
+    {research.map(({ title, summary, link, venue, year }) => (
+      <article class="rounded-xl border border-neutral/20 bg-black p-6">
+        <h3 class="mb-2 font-serif text-2xl text-primary">{title}</h3>
+        {venue || year ? <p class="text-sm text-neutral">{venue} {venue && year ? `· ${year}` : year}</p> : null}
+        <p class="mt-4 text-base text-neutral">{summary}</p>
+        {link ? (
+          <div class="mt-4">
+            <a href={link} target="_blank" style="color: #95beff;" class="hover:underline">
+              Read paper
+            </a>
+          </div>
+        ) : null}
+      </article>
+    ))}
+  </div>
+</Section>

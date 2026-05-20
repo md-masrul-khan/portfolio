@@ -1,17 +1,31 @@
 ---
-import { SITE_CONTENT } from "@config";
+import { SITE_CONTENT, SITE_CONFIG } from "@config";
 import Hero from "@components/Hero.astro";
 import Layout from "@layouts/Layout.astro";
 import Experience from "@components/Experience.astro";
 import Projects from "@components/Projects.astro";
 import About from "@components/About.astro";
+import Research from "@components/Research.astro";
+import Education from "@components/Education.astro";
+import Skills from "@components/Skills.astro";
+import Awards from "@components/Awards.astro";
+import Gallery from "@components/Gallery.astro";
+import Blogs from "@components/Blogs.astro";
+import Resume from "@components/Resume.astro";
 
 import "../styles/global.css";
 ---
 
 <Layout>
-  <Hero {...SITE_CONTENT.hero} />
+  <Hero {...SITE_CONTENT.hero} socialLinks={SITE_CONFIG.socialLinks} />
   <Experience experience={SITE_CONTENT.experience} />
   <Projects projects={SITE_CONTENT.projects} />
+  <Research research={SITE_CONTENT.research ?? []} />
+  <Education education={SITE_CONTENT.education ?? []} />
+  <Skills skills={SITE_CONTENT.skills ?? []} />
+  <Awards awards={SITE_CONTENT.awards ?? []} />
+  <Gallery items={SITE_CONTENT.gallery ?? []} />
+  <Blogs posts={SITE_CONTENT.blogs ?? []} />
+  <Resume resume={SITE_CONTENT.resume ?? {}} />
   <About {...SITE_CONTENT.about} name={SITE_CONTENT.hero.name} />
 </Layout>

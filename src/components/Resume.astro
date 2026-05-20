@@ -1,0 +1,24 @@
+---
+import Section from "./Section.astro";
+import type { ResumeProps } from "@types";
+
+interface Props {
+  resume: ResumeProps;
+}
+
+const { resume } = Astro.props;
+---
+
+<Section text="Resume" href="resume">
+  <div class="rounded-xl border border-neutral/20 bg-black p-6">
+    {resume?.file ? (
+      <a href={resume.file} class="hover:underline" download>
+        Download Resume
+      </a>
+    ) : resume?.link ? (
+      <a href={resume.link} target="_blank" class="hover:underline">View Resume</a>
+    ) : (
+      <p class="text-neutral">Resume not available.</p>
+    )}
+  </div>
+</Section>

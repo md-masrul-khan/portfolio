@@ -1,0 +1,21 @@
+---
+import Section from "./Section.astro";
+import type { GalleryItem } from "@types";
+
+interface Props {
+  items: GalleryItem[];
+}
+
+const { items } = Astro.props;
+---
+
+<Section text="Gallery" href="gallery">
+  <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
+    {items.map(({ image, title, caption }) => (
+      <figure class="overflow-hidden rounded-xl border border-neutral/20 bg-black">
+        <img src={image} alt={title ?? caption ?? 'gallery item'} class="h-48 w-full object-cover" />
+        {caption ? <figcaption class="p-2 text-sm text-neutral">{caption}</figcaption> : null}
+      </figure>
+    ))}
+  </div>
+</Section>

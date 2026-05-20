@@ -1,0 +1,22 @@
+---
+import Section from "./Section.astro";
+import type { EducationProps } from "@types";
+
+interface Props {
+  education: EducationProps[];
+}
+
+const { education } = Astro.props;
+---
+
+<Section text="Education" href="education">
+  <div class="grid gap-6">
+    {education.map(({ degree, institution, location, session, passingYear, gpa }) => (
+      <div class="rounded-xl border border-neutral/20 bg-black p-6">
+        <h3 class="mb-1 font-serif text-2xl text-primary">{degree}</h3>
+        <p class="text-sm text-neutral">{institution} {location ? `· ${location}` : ''}</p>
+        <p class="mt-3 text-base text-neutral">{session ? `${session} · ` : ''}{passingYear ? `Passing Year: ${passingYear}` : ''}{gpa ? ` · GPA: ${gpa}` : ''}</p>
+      </div>
+    ))}
+  </div>
+</Section>

@@ -1,27 +1,72 @@
 ---
-import type { HeroProps } from "@types";
-type Props = HeroProps;
+import type { HeroProps, SiteConfig } from "@types";
 
-const { name, specialty, summary, email } = Astro.props;
+interface Props extends HeroProps {
+  socialLinks?: Pick<SiteConfig, "socialLinks">["socialLinks"];
+}
+
+const { name, specialty, summary, email, socialLinks = [] } = Astro.props;
+
+// Map social platform names to media icon filenames
+const getIconPath = (platform: string): string => {
+  const iconMap: Record<string, string> = {
+    "Google Scholar": "/media icon/github.png",
+    "LinkedIn": "/media icon/linked in.png",
+    "Github": "/media icon/github.png",
+    "Youtube": "/media icon/youtube.png",
+    "Facebook": "/media icon/facebook.png",
+    "Instagram": "/media icon/instagram.png",
+  };
+  return iconMap[platform] || "/media icon/github.png";
+};
 ---
 
-<section class="py-24 md:py-32" id="#hero">
-  <h1
-    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
-  >
-    {name}
-  </h1>
-  <p
-    class="mb-9 font-serif text-4xl leading-11.5 font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
-  >
-    {specialty}
-  </p>
-  <p class="mb-16 text-base font-normal text-neutral md:text-lg">
-    {summary}
-  </p>
-
-  <a
-    class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff]"
-    href={`mailto:${email}`}>Get in Touch</a
-  >
+<section class="py-30 md:py-32" id="hero">
+  <div>
+      <h1
+        class="mb-1.5 font-serif text-6xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
+      >
+        {name}
+      </h1>
+      <p
+        class="mb-9 font-serif text-4xl leading-11.5 font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
+      >
+        {specialty}
+      </p>
+  </div>
+  <div class="grid items-top gap-10 lg:grid-cols-[1.45fr_0.95fr]">
+    <div>
+      <p class="mb-16 text-base font-normal text-neutral md:text-lg text-justify">
+        {summary}
+      </p>
+    </div>
+    <div class="mx-auto w-full max-w-[32rem] overflow-hidden rounded-[2rem] border border-neutral/20 bg-[#111827]/80 p-2 shadow-[0_40px_120px_-90px_rgba(15,23,42,0.65)]">
+      <img
+        src="/md-masrul-khan-2.jpg"
+        alt="Md Masrul Khan"
+        class="h- w-full rounded-[1.75rem] object-cover"
+      />
+    </div>
+  </div>
+  <div class="flex flex-wrap items-center gap-6">
+        <a
+          class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:opacity-90 transition-opacity"
+          href={`mailto:${email}`}>Get in Touch</a
+        >
+        
+        {socialLinks.length > 0 && (
+          <div class="flex gap-4">
+            {socialLinks.map(({ text, href }) => (
+              <a
+                href={href}
+                target="_blank"
+                title={text}
+                class="inline-flex h-10 w-10 items-center justify-center rounded-full border border-primary transition-all duration-300 hover:bg-primary hover:scale-110"
+              >
+                <img src={getIconPath(text)} alt={text} class="h-6 w-6" />
+              </a>
+            ))}
+          </div>
+        )}
+  </div>
 </section>

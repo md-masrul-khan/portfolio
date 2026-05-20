@@ -13,6 +13,13 @@ export interface SiteContent {
   experience: ExperienceProps[];
   projects: ProjectProps[];
   about: AboutProps;
+  research?: ResearchProps[];
+  education?: EducationProps[];
+  skills?: string[];
+  awards?: AwardProps[];
+  gallery?: GalleryItem[];
+  blogs?: BlogPost[];
+  resume?: ResumeProps;
 }
 
 export interface HeroProps {
@@ -36,6 +43,52 @@ export interface ProjectProps {
   image: string;
   linkPreview?: string;
   linkSource?: string;
+}
+
+export interface ResearchProps {
+  title: string;
+  summary: string;
+  link?: string;
+  venue?: string;
+  year?: string;
+}
+
+export interface EducationProps {
+  degree: string;
+  institution: string;
+  location?: string;
+  session?: string;
+  passingYear?: string;
+  gpa?: string;
+}
+
+export interface SkillsProps {
+  skills: string[];
+}
+
+export interface AwardProps {
+  title: string;
+  issuer?: string;
+  year?: string;
+  description?: string;
+}
+
+export interface GalleryItem {
+  title?: string;
+  image: string;
+  caption?: string;
+}
+
+export interface BlogPost {
+  title: string;
+  summary?: string;
+  link?: string;
+  date?: string;
+}
+
+export interface ResumeProps {
+  file?: string;
+  link?: string;
 }
 
 export interface AboutProps {

@@ -5,29 +5,49 @@ type Props = Pick<SiteConfig, "author" | "socialLinks">;
 
 const { author, socialLinks } = Astro.props;
 const currentYear = new Date().getFullYear();
+
+// Map social platform names to media icon filenames
+const getIconPath = (platform: string): string => {
+  const iconMap: Record<string, string> = {
+    "Google Scholar": "/media icon/github.png",
+    "LinkedIn": "/media icon/linked in.png",
+    "Github": "/media icon/github.png",
+    "Youtube": "/media icon/youtube.png",
+    "Facebook": "/media icon/facebook.png",
+    "Instagram": "/media icon/instragram.png",
+  };
+  return iconMap[platform] || "/media icon/github.png";
+};
 ---
 
 <footer
-  class="w-full border-t border-neutral/20 px-5 pt-5 pb-8 text-center text-white"
+  class="w-full border-t border-neutral/20 px-5 pt-12 pb-8"
 >
-  <ul class="mb-5 flex flex-wrap justify-center gap-x-5 text-xs">
-    {
-      socialLinks.map(({ text, href }) => (
-        <li>
-          <a
-            href={href}
-            target="_blank"
-            class="inline-block px-4 py-3 after:relative after:-bottom-1 after:content-[url(/external.svg)] hover:text-primary"
-          >
-            {text}
-          </a>
-        </li>
-      ))
-    }
-  </ul>
-  <p class="text-xs">
+  <!-- Get in Touch Section -->
+  <div class="mb-8 text-center">
+    <h2 class="mb-6 font-serif text-2xl text-white">Get in Touch</h2>
+    <ul class="flex flex-wrap justify-center gap-4">
+      {
+        socialLinks.map(({ text, href }) => (
+          <li>
+            <a
+              href={href}
+              target="_blank"
+              title={text}
+              class="inline-flex h-12 w-12 items-center justify-center rounded-full border border-neutral/40 bg-black transition-all duration-300 hover:border-primary hover:bg-primary hover:scale-110"
+            >
+              <img src={getIconPath(text)} alt={text} class="h-6 w-6" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+
+  <!-- Footer Copyright -->
+  <p class="text-center text-xs text-neutral">
     {author} © {currentYear}. <span class="text-neutral"
       >Designed & Developed by</span
-    > Moisés Machuca
+    > Md Masrul Khan
   </p>
 </footer>
