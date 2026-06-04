@@ -1,0 +1,146 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
+import { SITE_CONTENT } from "@config";
+import type { ProjectProps } from "@types";
+
+import "../styles/global.css";
+
+const currentProjectName = "Autonomous Surface Vehicle (ASV)";
+const otherProjects = SITE_CONTENT.projects.filter(
+  ({ name }) => name !== currentProjectName,
+) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/BengalBoat/team.jpeg", caption: "Team photo" },
+  { image: "/project_images/BengalBoat/asv1_render.png", caption: "BengalBoat 1.0" },
+  { image: "/project_images/BengalBoat/asv2_render.png", caption: "BengalBoat 2.0" },
+  { image: "/project_images/BengalBoat/asv_test1.jpg", caption: "Sea trials" },
+  { image: "/project_images/BengalBoat/asv_test2.jpg", caption: "Autonomy testing" },
+  { image: "/project_images/BengalBoat/asv_deck.jpg", caption: "Deck layout" },
+];
+---
+
+<Layout>
+  <div class="min-h-screen bg-black text-neutral">
+    <Section text="BengalBoat - Autonomous Surface Vehicle" href="bengalboat" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">As the Team mentor of the team BengalBot, I had to guide and plan for the entire project. And I designed the mechanical parts of the Boat. Together, we built an autonomous surface vehicle named BijoyTori1.0, focusing on participating in Roboboat, Florida, USA. The objectives of this project was to build a surface vehicle which can perform competitions specific task autonomously using its perception and sensor fusion-based navigation system.</p>
+
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
+        <div>
+          <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
+          <h2 class="mb-5 text-4xl font-semibold text-white">BengalBoat: Modular ASV for coastal autonomy and inspection</h2>
+          <p class="mb-8 leading-8 text-neutral text-justify">The ASV platform was developed to support navigation experiments, payload deployment, and sensor fusion in near-shore environments. Design goals included low-drag hull geometry, easy access to electronics, and a flexible mounting system for sensors and manipulators.</p>
+          <div class="flex flex-wrap gap-4">
+            <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://github.com/" target="_blank">Source</a>
+            <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="https://example.com/bengalboat" target="_blank">View original</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 gap-4 mt-10">
+        <div>
+          <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[26rem]">
+            <img src="/project_images/BengalBoat/bijoy_tori.jpg" alt="BengalBoat ASV overview" class="h-full w-full object-cover object-center" />
+          </div>
+          <p class="mt-3 text-sm text-neutral text-center">BijoyTori 1.0</p>
+        </div>
+      </div>
+    </Section>
+
+    <Section text="Overview" href="overview" class="py-16">
+      <div class="grid gap-10">
+        <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+          <h3 class="mb-4 text-2xl font-semibold text-white">BijoyTori 1.0 Overview</h3>
+          <p class="leading-8 text-neutral">BengalBoat 1.0 established a baseline hull and propulsion layout for stable surface operation. The platform supported payloads including a forward-looking camera, GPS/IMU navigation stack.</p>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)]">
+          <img src="/project_images/BengalBoat/iso.jpg" alt="BengalBoat 1.0" class="h-[400px] w-full object-cover object-center" />
+        </div>
+      </div>
+    </Section>
+
+    <Section text="Contributions" href="contributions" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Mechanical Design</h3>
+          <p class="leading-8 text-justify">Led the hull design and structural mounts for electronics and payloads, prioritizing low drag and easy maintenance. Designed modular mounting plates to swap sensors quickly between missions.</p>
+          <img src="/project_images/BengalBoat/mountings_cad.png" alt="ASV structure" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+          
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Autonomy & Sensors</h3>
+          <p class="leading-8 text-justify">Implemented sensor integration for GPS, IMU, and stereo camera perception. Worked with the software team to test waypoint following and obstacle avoidance behaviors in open-water trials.</p>
+          <img src="/project_images/BengalBoat/cam_lidar_stand.jpg" alt="Sensors" class="mt-6 h-[500px] w-full rounded-3xl object-cover" />
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Propulsion & Power</h3>
+          <p class="leading-8 text-justify">Designed propulsion layout with twin thrusters and variable pitch control for efficient cruising. Upgraded power systems to support longer missions and higher payload draws.</p>
+          <img src="/project_images/BengalBoat/asv_propulsion.jpg" alt="Propulsion" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Team Coordination</h3>
+          <p class="leading-8 text-justify">Coordinated with electrical and software teams to integrate navigation algorithms, sensor suites, and telemetry systems. Conducted sea trials and iterated on mechanical fixes based on test feedback.</p>
+          <img src="/project_images/BengalBoat/asv_deck.jpg" alt="Team coordination" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+        </article>
+      </div>
+    </Section>
+
+    <Section text="Impact" href="impact" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="leading-8 text-neutral">BengalBoat enabled the team to run repeated autonomy experiments in real-world conditions and provided a flexible platform for testing perception and control algorithms at scale.</p>
+      </div>
+    </Section>
+
+    <Section text="Videos" href="videos" class="py-16">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/" title="BengalBoat demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">BengalBoat Sea Trials</h3>
+            <p class="text-neutral leading-7">Short demo of the ASV performing waypoint following and basic obstacle avoidance.</p>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/" title="BengalBoat design" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Design Overview</h3>
+            <p class="text-neutral leading-7">Design walkthrough and lessons learned from building the ASV platform.</p>
+          </div>
+        </article>
+      </div>
+    </Section>
+
+    <Section text="Gallery" href="gallery" class="py-16">
+      <ProjectGallery items={galleryItems} />
+    </Section>
+
+    <Section text="External Links" href="external-links" class="py-16">
+      <div class="space-y-4 rounded-3xl border border-neutral/20 bg-black p-8 text-neutral">
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://example.com/bengalboat" target="_blank">View original page</a>
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://github.com/" target="_blank">Project source</a>
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://www.youtube.com/" target="_blank">Related videos</a>
+      </div>
+    </Section>
+
+    <Section text="Other Projects" href="other-projects" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        {otherProjects.map(({ name, summary, linkPreview }) => (
+          <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+            <h3 class="mb-3 text-xl font-semibold text-white">{name}</h3>
+            <p class="mb-6 text-neutral">{summary}</p>
+            <a class="inline-flex rounded-full border border-primary/40 bg-transparent px-5 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href={linkPreview}>
+              View project
+            </a>
+          </article>
+        ))}
+      </div>
+    </Section>
+  </div>
+</Layout>

@@ -1,0 +1,17 @@
+---
+import Section from "./Section.astro";
+
+interface Props {
+  researchInterest: string[];
+}
+
+const { researchInterest } = Astro.props;
+---
+
+<Section text="Research Interest" href="research-interest">
+  <div class="flex flex-wrap gap-3">
+    {researchInterest.map((r: string) => (
+      <span class="rounded-full border border-neutral/30 bg-[#0f1724] px-4 py-2 text-sm text-neutral">{r}</span>
+    ))}
+  </div>
+</Section>

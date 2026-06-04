@@ -10,6 +10,7 @@ export interface SiteConfig extends HeaderProps {
 
 export interface SiteContent {
   hero: HeroProps;
+  researchInterest?: string[];
   experience: ExperienceProps[];
   projects: ProjectProps[];
   about: AboutProps;
@@ -77,6 +78,7 @@ export interface GalleryItem {
   title?: string;
   image: string;
   caption?: string;
+  link?: string;
 }
 
 export interface BlogPost {

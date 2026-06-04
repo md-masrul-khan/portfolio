@@ -1,0 +1,172 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
+import { SITE_CONTENT } from "@config";
+import type { ProjectProps } from "@types";
+
+import "../styles/global.css";
+
+const currentProjectName = "Autonomous Underwater Vehicle (AUV)";
+const otherProjects = SITE_CONTENT.projects.filter(
+  ({ name }) => name !== currentProjectName,
+) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/BengalSub/our_team.jpeg", caption: "Team photo" },
+  { image: "/project_images/BengalSub/HAUV1_render.png", caption: "Our Very first AUV" },
+  { image: "/project_images/BengalSub/HAUV2_render.png", caption: "Our Second Iteration" },
+  { image: "/project_images/BengalSub/hauv2.0_p1.jpeg", caption: "First look of Hangor 2.0" },
+  { image: "/project_images/BengalSub/hauv2_p2.jpg", caption: "Testing in Underwater" },
+  { image: "/project_images/BengalSub/hauv2_p3.jpg", caption: "Testing in Underwater" },
+];
+---
+
+<Layout>
+  <div class="min-h-screen bg-black text-neutral">
+    <Section text="BengalSub - Autonomous Underwater Vehicle" href="bengalsub" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">As Team Co-lead and Mechanical Lead of Team BengalSub, I led the mechanical design and structural integration of an autonomous underwater vehicle built for RoboSub25. As a Co-lead my responsibility is to oversee the integration of various subsystems and ensure the vehicle meets the competition requirement.</p>
+
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
+        <div>
+          <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
+          <h2 class="mb-5 text-4xl font-semibold text-white">Hangor 1.0 & 2.0 : AUV's built for RoboSub competitions in CA,USA</h2>
+          <p class="mb-8 leading-8 text-neutral text-justify">We have built our vehicle Hangor 1.0, and its second iteration Hangor 2.0, to compete in competitions like RoboSub. We focused on mechanical resilience, hydrodynamic stability, and seamless subsystem integration for underwater navigation and mission execution. </p>
+          <div class="flex flex-wrap gap-4">
+            <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://github.com/md-masrul-khan" target="_blank">Source</a>
+            <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="https://md-masrul-khan.framer.website/bengalsub" target="_blank">View original</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <div>
+          <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+            <img src="/project_images/BengalSub/HAUV1_render.png" alt="BengalSub AUV overview" class="h-full w-full object-cover object-center" />
+          </div>
+          <p class="mt-3 text-sm text-neutral text-center">Hangor 1.0</p>
+        </div>
+        <div>
+          <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+            <img src="/project_images/BengalSub/HAUV2_render.png" alt="BengalSub AUV details" class="h-full w-full object-cover object-center" />
+          </div>
+          <p class="mt-3 text-sm text-neutral text-center">Hangor 2.0</p>
+        </div>
+      </div>
+    </Section>
+
+    <Section text="Overview" href="overview" class="py-16">
+      <div class="grid gap-10">
+        <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+          <h3 class="mb-4 text-2xl font-semibold text-white">Hangor 1.0 Overview</h3>
+          <p class="leading-8 text-neutral">Hangor 1.0 was the first-generation autonomous underwater vehicle developed by our team to establish a strong foundation in underwater robotics and RoboSub participation. The platform focused on modular subsystem integration, underwater maneuverability, and core mission capabilities while providing valuable experience in mechanical design, electronics, software integration, and system testing.</p>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)]">
+          <img src="/project_images/BengalSub/hauv1_overview.svg" alt="Hangor 1.0" class="h-[400px] w-full object-cover object-center" />
+        </div>
+
+        <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+          <h3 class="mb-4 text-2xl font-semibold text-white">Hangor 2.0 Overview</h3>
+          <p class="leading-8 text-neutral">Hangor 2.0 is the upgraded next-generation AUV designed with improved reliability, modularity, and autonomous capabilities for advanced RoboSub missions. Featuring a single-hull architecture, enhanced waterproofing with dual O-ring sealing and pressure-locking clamps, optimized thruster configuration, and integrated perception systems, the platform is built for robust underwater operation, efficient subsystem integration, and advanced mission execution.</p>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)]">
+          <img src="/project_images/BengalSub/hauv2_overview.svg" alt="Hangor 2.0" class="h-[400px] w-full object-cover object-center" />
+        </div>
+      </div>
+    </Section>
+
+    <Section text="Contributions" href="contributions" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Mechanical Design Leadership</h3>
+          <p class="leading-8 text-justify">Led the structural design of both AUVs, focusing on subsystem integrity and underwater operation constraints with 6DOF motion capability. To design and simulate drag forces, I have used  SolidWorks.</p>
+          <img src="/project_images/BengalSub/HAUV1_render.png" alt="AUV structure" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+          <img src="/project_images/BengalSub/HAUV2_render.png" alt="AUV structure" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Watertight Integrity</h3>
+          <p class="leading-8 text-justify">Hangor 1.0 was designed and built multiple acrylic cylindrical enclosures for electronics, cameras, and batteries. And for Hangor 2.0, a single rectangular hull was designed to reduce risk of multiple sealing and easy electronics maintenance access.</p>
+          <img src="/project_images/BengalSub/HAUV2_split.jpg" alt="Watertight enclosure" class="mt-6 h-[500px] w-full rounded-3xl object-cover" />
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Thruster & Propulsion</h3>
+          <p class="leading-8 text-justify">Both the AUVs have 8 T-200 thrusters providing 6DOF motion, which is required for autonomous missions of the RoboSub competition. This feature gives the vehicle great maneuverability. And the Bar30 pressure sensor feedback helps hold a fixed depth while moving forward.</p>
+          <img src="/project_images/BengalSub/hauv2_p2.jpg" alt="Thruster layout" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Team Integration</h3>
+          <p class="leading-8 text-justify">As a Team co-lead, I have to keep close observation of all subteams' work so that we can achieve our goal within the time constraint and all the work integrates properly. And my knowledge of Mechatronics system development plays a key role to tide all the things together.</p>
+          <img src="/project_images/BengalSub/subteam_leads.DNG" alt="Team integration" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+        </article>
+      </div>
+    </Section>
+
+    <Section text="Impact" href="impact" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="leading-8 text-neutral">As the Co-Lead of the team, I played a key role in coordinating the development of Hangor 2.0 and ensuring effective collaboration across mechanical, electrical, and software divisions. As the lead mechanical designer, I was responsible for designing the AUV’s structure, waterproof hull, modular mounting systems, and mission mechanisms while overseeing the manufacturing and testing processes. Additionally, I contributed to system integration by bridging mechanical, electrical, and software subsystems, ensuring seamless communication and reliable operation of the complete autonomous underwater vehicle.</p>
+      </div>
+    </Section>
+
+    <Section text="Videos" href="videos" class="py-16">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/b861aXG0NJU" title="BengalSub AUV demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Hangor 1.0 Mechanical Specifications</h3>
+            <p class="text-neutral leading-7">Overview of the Hangor 1.0 mechanical construction methods and features that enable underwater operations.</p>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/HRAwwRpp0dY" title="BengalSub team" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Hangor 1.0 Design in SolidWorks</h3>
+            <p class="text-neutral leading-7">Hangor 1.0 is designed considering modularity and rapid upgradation so that it could be changed rapidly with the change of electronics and software requirements.</p>
+          </div>
+        </article>
+        <!-- Team Introduction video of Hangor1.0
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/HRAwwRpp0dY" title="BengalSub team" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Team Introduction video of Hangor1.0</h3>
+            <p class="text-neutral leading-7">Explanation of the total AUV system and our mission strategy to fulfill the RoboSub competition goals. </p>
+          </div>
+        </article>
+      -->
+      </div>
+    </Section>
+
+    <Section text="Gallery" href="gallery" class="py-16">
+      <ProjectGallery items={galleryItems} />
+    </Section>
+
+    <Section text="External Links" href="external-links" class="py-16">
+      <div class="space-y-4 rounded-3xl border border-neutral/20 bg-black p-8 text-neutral">
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://md-masrul-khan.framer.website/bengalsub" target="_blank">View original Framer page</a>
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://github.com/md-masrul-khan" target="_blank">Project source</a>
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://www.youtube.com/" target="_blank">Related videos</a>
+      </div>
+    </Section>
+
+    <Section text="Other Projects" href="other-projects" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        {otherProjects.map(({ name, summary, linkPreview }) => (
+          <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+            <h3 class="mb-3 text-xl font-semibold text-white">{name}</h3>
+            <p class="mb-6 text-neutral">{summary}</p>
+            <a class="inline-flex rounded-full border border-primary/40 bg-transparent px-5 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href={linkPreview}>
+              View project
+            </a>
+          </article>
+        ))}
+      </div>
+    </Section>
+  </div>
+</Layout>

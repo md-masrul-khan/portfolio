@@ -1,0 +1,126 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/Section.astro";
+import { SITE_CONTENT } from "@config";
+import type { ProjectProps } from "@types";
+
+import "../styles/global.css";
+
+const currentProjectName = "Spot Welding Robotic Arm";
+const otherProjects = SITE_CONTENT.projects.filter(
+  ({ name }) => name !== currentProjectName,
+) as ProjectProps[];
+---
+
+<Layout>
+  <div class="min-h-screen bg-black text-neutral">
+    <Section text="Spot Welding Robotic Arm" href="spotwelding_arm" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">A CAD-driven spot welding robotic arm built to automate welding tasks, improve consistency, and reduce human exposure to hot welding environments.</p>
+
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div>
+          <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
+          <h2 class="mb-5 text-4xl font-semibold text-white">Spot welding automation with a precision robotic arm and custom electrode mount.</h2>
+          <p class="mb-8 leading-8 text-neutral">The arm combines SolidWorks design, a 3D-printable welding probe mount, and an electronics circuit for controlled welding current to join metal sheets safely and repeatably.</p>
+          <div class="flex flex-wrap gap-4">
+            <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://md-masrul-khan.framer.website/spotwelding_arm" target="_blank">View original</a>
+            <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="mailto:masrulkhan2020@gmail.com">Contact</a>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
+          <img src="https://i.ytimg.com/vi_webp/Tc13JQyBb18/sddefault.webp" alt="Spot Welding Robotic Arm" class="h-full w-full object-cover object-center" />
+        </div>
+      </div>
+    </Section>
+
+    <Section text="Overview" href="overview" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="leading-8 text-neutral">The Spot Welding Robotic Arm automates the welding process with precise electrode positioning, repeatable motion, and safer operation. It was designed to weld complex shapes and patterns while protecting humans from high-temperature and hazardous conditions.</p>
+      </div>
+    </Section>
+
+    <Section text="Contributions" href="contributions" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Design Research</h3>
+          <p class="leading-8">Researched materials, welding technologies, and mechanical approaches to create a practical robotic welding arm concept.</p>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">CAD and Mechanical Design</h3>
+          <p class="leading-8">Designed the robotic arm structure and end-effector in SolidWorks, optimizing for stability, assembly, and manufacturability.</p>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">End-Effector Integration</h3>
+          <p class="leading-8">Developed a 3D-printable mount to hold the welding probe and maintain consistent electrode contact during welding cycles.</p>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Electronics & Control</h3>
+          <p class="leading-8">Designed the control electronics to provide sufficient current for welding and ensure safe operation of the robotic arm.</p>
+        </article>
+      </div>
+    </Section>
+
+    <Section text="Components" href="components" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <ul class="grid gap-4 text-neutral sm:grid-cols-2">
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">SolidWorks 2020 design</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Spot welding electrode end-effector</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">3D-printable welding probe mount</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Welding current control circuit</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Automation and precision motion</li>
+        </ul>
+      </div>
+    </Section>
+
+    <Section text="Outcome" href="outcome" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="leading-8 text-neutral">This project delivered a welding automation concept with a robust mechanical layout, safer operator conditions, and repeatable weld quality through precise robotic control.</p>
+      </div>
+    </Section>
+
+    <Section text="Videos" href="videos" class="py-16">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/Tc13JQyBb18" title="Spot Welding Arm overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Spot Welding Arm Overview</h3>
+            <p class="text-neutral leading-7">Watch the robotic arm concept and welding end-effector designed for automation and safety.</p>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/7kFxOp3jot4" title="Spot Welding Arm design" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Design & Electronics</h3>
+            <p class="text-neutral leading-7">See how the CAD design, electrode mount, and electronics are combined for controlled welding.</p>
+          </div>
+        </article>
+      </div>
+    </Section>
+
+    <Section text="External Links" href="external-links" class="py-16">
+      <div class="space-y-4 rounded-3xl border border-neutral/20 bg-black p-8 text-neutral">
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://md-masrul-khan.framer.website/spotwelding_arm" target="_blank">View original Framer page</a>
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="mailto:masrulkhan2020@gmail.com">Contact</a>
+      </div>
+    </Section>
+
+    <Section text="Other Projects" href="other-projects" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        {otherProjects.map(({ name, summary, linkPreview }) => (
+          <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+            <h3 class="mb-3 text-xl font-semibold text-white">{name}</h3>
+            <p class="mb-6 text-neutral">{summary}</p>
+            <a class="inline-flex rounded-full border border-primary/40 bg-transparent px-5 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href={linkPreview}>
+              View project
+            </a>
+          </article>
+        ))}
+      </div>
+    </Section>
+  </div>
+</Layout>

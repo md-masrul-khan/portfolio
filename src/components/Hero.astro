@@ -10,6 +10,7 @@ const { name, specialty, summary, email, socialLinks = [] } = Astro.props;
 // Map social platform names to media icon filenames
 const getIconPath = (platform: string): string => {
   const iconMap: Record<string, string> = {
+    "Email": "/media icon/email.png",
     "Google Scholar": "/media icon/github.png",
     "LinkedIn": "/media icon/linked in.png",
     "Github": "/media icon/github.png",
@@ -21,39 +22,43 @@ const getIconPath = (platform: string): string => {
 };
 ---
 
-<section class="py-30 md:py-32" id="hero">
-  <div>
-      <h1
-        class="mb-1.5 font-serif text-6xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-9xl"
-      >
-        {name}
-      </h1>
-      <p
-        class="mb-9 font-serif text-4xl leading-11.5 font-bold tracking-tighter text-primary sm:text-5xl md:text-6xl"
-      >
-        {specialty}
-      </p>
-  </div>
-  <div class="grid items-top gap-10 lg:grid-cols-[1.45fr_0.95fr]">
-    <div>
+<section class="pt-0 pb-16 md:pb-20" id="hero">
+  <h1
+    class="mb-1.5 font-serif text-7xl font-bold tracking-tightest text-white sm:text-8xl md:mb-0 md:text-8xl"
+  >
+    {name}
+  </h1>
+  <p
+    class="mb-9 font-serif text-4xl leading-11.5 font-bold tracking-tighter text-primary sm:text-5xl md:text-5xl"
+  >
+    {specialty}
+  </p>
+
+  <div class="grid gap-10 lg:grid-cols-[1.25fr_0.9fr] lg:items-start">
+    <div class="lg:pt-2">
       <p class="mb-16 text-base font-normal text-neutral md:text-lg text-justify">
         {summary}
       </p>
+
+      
     </div>
-    <div class="mx-auto w-full max-w-[32rem] overflow-hidden rounded-[2rem] border border-neutral/20 bg-[#111827]/80 p-2 shadow-[0_40px_120px_-90px_rgba(15,23,42,0.65)]">
-      <img
-        src="/md-masrul-khan-2.jpg"
-        alt="Md Masrul Khan"
-        class="h- w-full rounded-[1.75rem] object-cover"
-      />
+
+    <div class="mx-auto w-full max-w-sm">
+      <div class="relative aspect-square overflow-hidden rounded-full border border-primary/20 bg-[#0f1724] shadow-[0_30px_80px_-40px_rgba(59,130,246,0.55)]">
+        <img src="/md-masrul-khan-2.jpg" alt="Space-themed illustration" class="h-full w-full object-cover" />
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.18),transparent_30%),radial-gradient(circle_at_75%_20%,rgba(255,255,255,0.12),transparent_15%),radial-gradient(circle_at_40%_75%,rgba(59,130,246,0.18),transparent_18%)]"></div>
+        <div class="absolute left-10 top-14 h-4 w-4 rounded-full bg-white/90 shadow-[0_0_20px_rgba(255,255,255,0.8)]"></div>
+        <div class="absolute right-14 bottom-16 h-3 w-3 rounded-full bg-sky-400/80 shadow-[0_0_12px_rgba(56,189,248,0.7)]"></div>
+        <div class="absolute left-1/2 top-1/2 h-5 w-5 -translate-x-1/2 -translate-y-1/2 rounded-full bg-violet-400/80 shadow-[0_0_24px_rgba(168,85,247,0.8)]"></div>
+      </div>
     </div>
   </div>
-  <div class="flex flex-wrap items-center gap-6">
+  <div class="flex flex-wrap items-center justify-center gap-6">
         <a
           class="inline-block rounded-full bg-primary px-8 py-5 text-sm leading-5 font-medium text-[#fff] hover:opacity-90 transition-opacity"
           href={`mailto:${email}`}>Get in Touch</a
         >
-        
+
         {socialLinks.length > 0 && (
           <div class="flex gap-4">
             {socialLinks.map(({ text, href }) => (
@@ -68,5 +73,5 @@ const getIconPath = (platform: string): string => {
             ))}
           </div>
         )}
-  </div>
+      </div>
 </section>

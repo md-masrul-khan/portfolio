@@ -9,12 +9,13 @@ const currentYear = new Date().getFullYear();
 // Map social platform names to media icon filenames
 const getIconPath = (platform: string): string => {
   const iconMap: Record<string, string> = {
-    "Google Scholar": "/media icon/github.png",
+    "Email": "/media icon/email.png",
+    "Google Scholar": "/media icon/google_scholar.png",
     "LinkedIn": "/media icon/linked in.png",
     "Github": "/media icon/github.png",
     "Youtube": "/media icon/youtube.png",
     "Facebook": "/media icon/facebook.png",
-    "Instagram": "/media icon/instragram.png",
+    "Instagram": "/media icon/instagram.png",
   };
   return iconMap[platform] || "/media icon/github.png";
 };

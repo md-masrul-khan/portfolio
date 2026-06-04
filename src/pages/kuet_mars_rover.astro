@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
 import { SITE_CONTENT } from "@config";
 import type { ProjectProps } from "@types";
 
@@ -10,33 +11,71 @@ const currentProjectName = "KUET Mars Rover (Team Durbar)";
 const otherProjects = SITE_CONTENT.projects.filter(
   ({ name }) => name !== currentProjectName,
 ) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/kuet_mars_rover/arm1.jpg", caption: "Robotic arm testing for soil collection system" },
+  { image: "/project_images/kuet_mars_rover/mars_rover_design.jpg", caption: "Full mechanical design of KUET Mars Rover" },
+  { image: "/project_images/kuet_mars_rover/durbar.jpg", caption: "Team Durbar during assembly phase" },
+  { image: "/project_images/kuet_mars_rover/DSC_6630.JPG", caption: "Field testing of rover mobility system" },
+];
 ---
 
 <Layout>
   <div class="min-h-screen bg-black text-neutral">
     
-    <Section text="KUET Mars Rover" href="kuet-mars-rover" class="py-16">
-      <p class="max-w-3xl text-base leading-8 text-neutral">An ambitious student-led project at Khulna University of Engineering & Technology to design, build, and compete with a Mars rover platform in international robotics challenges such as URC, IRC, and ERC.</p>
+    <Section text="KUET Mars Rover" href="kuet-mars-rover" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">An ambitious student-led project at Khulna University of Engineering & Technology to design, build, research, and compete with a Mars rover platform in international robotics challenges such as URC, IRC, and ERC.</p>
 
-      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
         <div>
           <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
           <h2 class="mb-5 text-4xl font-semibold text-white">Mars rover development with robotic manipulation, autonomy, and sensor integration.</h2>
-          <p class="mb-8 leading-8 text-neutral">The KUET Mars Rover is a multifunctional exploration platform built to navigate demanding terrain, conduct autonomous missions, and support scientific payloads. It blends mechanical design, control systems, and sensor fusion into a competition-ready rover.</p>
+          <p class="mb-8 leading-8 text-neutral text-justify">The KUET Mars Rover is a multifunctional exploration platform built to navigate demanding terrain, conduct autonomous missions, and support scientific payloads. It blends mechanical design, control systems, and sensor fusion into a competition-ready rover.</p>
           <div class="flex flex-wrap gap-4">
             <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://teamdurbarkuet.vercel.app/" target="_blank">Team Durbar site</a>
             <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="https://md-masrul-khan.framer.website/" target="_blank">View original</a>
           </div>
         </div>
-        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
-          <img src="/project_images/kuet_mars_rover/mars_rover_design.jpg" alt="KUET Mars Rover design" class="h-full w-full object-cover object-center" />
-        </div>
       </div>
+      <div class="grid grid-cols-2 gap-4">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img
+            src="/project_images/kuet_mars_rover/DSC_6630.JPG"
+      alt="KUET Mars Rover design"
+      class="h-[250] w-f[400]] object-cover"
+    />
+  </div>
+
+  <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+    <img
+      src="/project_images/kuet_mars_rover/durbar.jpg"
+      alt="KUET Mars Rover"
+      class="h-[250] w-[400] object-cover"
+    />
+  </div>
+</div>
     </Section>
 
   <Section text="Overview" href="overview" class="py-16">
     <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
       <p class="leading-8 text-neutral">The KUET Mars Rover project combines advanced robotics, sensor systems, and autonomous control to create a capable planetary exploration vehicle. It prepares the team for international robotics competitions while delivering practical experience in real-world engineering.</p>
+    </div>
+    <div class="grid grid-cols-2 gap-4">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img
+            src="/project_images/kuet_mars_rover/mars_rover_design.jpg"
+            alt="KUET Mars Rover design"
+            class="h-[250] w-f[400]] object-cover"
+          />
+      </div>
+
+      <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+        <img
+          src="/project_images/kuet_mars_rover/DSC_6670.JPG"
+          alt="KUET Mars Rover"
+          class="h-[250] w-[400] object-cover"
+        />
+      </div>
     </div>
   </Section>
 
@@ -44,19 +83,39 @@ const otherProjects = SITE_CONTENT.projects.filter(
     <div class="grid gap-6 md:grid-cols-2">
       <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
         <h3 class="mb-3 text-xl font-semibold text-white">Robotic Arm Development</h3>
-        <p class="leading-8">Designed a 5-DOF manipulator focusing on kinematics, workspace optimization, and precision control to support sample collection and handling tasks.</p>
+        <p class="leading-8 text-justify">Designed a 5-DOF manipulator focusing on kinematics, workspace optimization, and precision control to support sample collection and handling tasks.</p>
+        <img
+          src="/project_images/kuet_mars_rover/arm_ros.jpg"
+          alt="KUET Mars Rover"
+          class="h-[250px] w-[400px] rounded-3xl object-cover"
+        />
       </article>
       <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
         <h3 class="mb-3 text-xl font-semibold text-white">Control System Implementation</h3>
-        <p class="leading-8">Implemented MoveIt Servo-based control and gamepad-driven Cartesian teleoperation for smooth, responsive robotic motion.</p>
+        <p class="leading-8 text-justify">Implemented MoveIt Servo-based control and gamepad-driven Cartesian teleoperation for smooth, responsive robotic motion.</p>
+        <img
+            src="/project_images/kuet_mars_rover/drive_control.jpg"
+            alt="KUET Mars Rover"
+            class="h-[250px] w-[400px] rounded-3xl object-cover"
+          />
       </article>
       <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
         <h3 class="mb-3 text-xl font-semibold text-white">Sensor Integration</h3>
-        <p class="leading-8">Integrated environmental and perception sensors for gas, dust, atmospheric, and mission-critical data acquisition.</p>
+        <p class="leading-8 text-justify">Integrated environmental and perception sensors for gas, dust, atmospheric, and mission-critical data acquisition.</p>
+        <img
+            src="/project_images/kuet_mars_rover/design_2.jpg"
+            alt="KUET Mars Rover"
+            class="h-[250px] w-[400px] rounded-3xl object-cover"
+          />
       </article>
       <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
         <h3 class="mb-3 text-xl font-semibold text-white">Automation & Safety</h3>
-        <p class="leading-8">Built autonomous navigation routines, safety protocols, and mission scripts to enable repeatable performance under competition conditions.</p>
+        <p class="leading-8 text-justify">Built autonomous navigation routines, safety protocols, and mission scripts to enable repeatable performance under competition conditions.</p>
+        <img
+            src="/project_images/kuet_mars_rover/DSC_6670.JPG"
+            alt="KUET Mars Rover"
+            class="h-[250px] w-[400px] rounded-3xl object-cover"
+          /> 
       </article>
     </div>
   </Section>
@@ -67,32 +126,15 @@ const otherProjects = SITE_CONTENT.projects.filter(
     </div>
   </Section>
 
-  <Section text="Gallery" href="gallery" class="py-16">
-    <div class="grid gap-6 md:grid-cols-2">
-      <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-black h-[24rem]">
-        <img src="/project_images/kuet_mars_rover/arm1.jpg" alt="Mars Rover robotic arm" class="h-full w-full object-cover object-center" />
-      </div>
-      <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-black h-[24rem]">
-        <img src="/project_images/kuet_mars_rover/mars_rover_design.jpg" alt="Mars Rover design" class="h-full w-full object-cover object-center" />
-      </div>
-      <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-black h-[24rem]">
-        <img src="/project_images/kuet_mars_rover/durbar.jpg" alt="Team Durbar rover" class="h-full w-full object-cover object-center" />
-      </div>
-      <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-black h-[24rem]">
-        <img src="/project_images/kuet_mars_rover/DSC_6630.JPG" alt="Mars Rover field test" class="h-full w-full object-cover object-center" />
-      </div>
-    </div>
-  </Section>
-
   <Section text="Videos" href="videos" class="py-16">
     <div class="grid gap-6 lg:grid-cols-2">
       <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
         <div class="relative aspect-video overflow-hidden rounded-t-3xl">
-          <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/v2aJ5RL7JMA" title="KUET Mars Rover demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/Ec7-XR0Jk9I" title="KUET Mars Rover demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="p-6">
-          <h3 class="mb-3 text-xl font-semibold text-white">Rover Demo</h3>
-          <p class="text-neutral leading-7">Watch the KUET Mars Rover move, navigate terrain, and demonstrate autonomous operations.</p>
+          <h3 class="mb-3 text-xl font-semibold text-white">Team Overview</h3>
+          <p class="text-neutral leading-7 text-justify">See the Team Durbar rover setup, key subsystems, and collaboration behind the KUET Mars Rover project.</p>
         </div>
       </article>
       <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
@@ -100,11 +142,15 @@ const otherProjects = SITE_CONTENT.projects.filter(
           <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/XTcmAez1buQ" title="Mars Rover team overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         </div>
         <div class="p-6">
-          <h3 class="mb-3 text-xl font-semibold text-white">Team Overview</h3>
-          <p class="text-neutral leading-7">See the Team Durbar rover setup, key subsystems, and collaboration behind the KUET Mars Rover project.</p>
+          <h3 class="mb-3 text-xl font-semibold text-white">Manipulator Control</h3>
+          <p class="text-neutral leading-7 text-justify">Implementation of vision based manipulatior control using ros2 tools and CSRT objectracking algorithm to track grasping objects.</p>
         </div>
       </article>
     </div>
+  </Section>
+
+  <Section text="Gallery" href="gallery" class="py-16">
+    <ProjectGallery items={galleryItems} />
   </Section>
 
   <Section text="External Links" href="external-links" class="py-16">

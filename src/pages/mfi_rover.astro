@@ -1,0 +1,126 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/Section.astro";
+import { SITE_CONTENT } from "@config";
+import type { ProjectProps } from "@types";
+
+import "../styles/global.css";
+
+const currentProjectName = "MFI Rover";
+const otherProjects = SITE_CONTENT.projects.filter(
+  ({ name }) => name !== currentProjectName,
+) as ProjectProps[];
+---
+
+<Layout>
+  <div class="min-h-screen bg-black text-neutral">
+    <Section text="MFI Rover" href="mfi_rover" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">Designed a mobile field inspection rover for MFI, combining rugged robotics, precision sensing, and autonomous navigation for industrial environments.</p>
+
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div>
+          <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
+          <h2 class="mb-5 text-4xl font-semibold text-white">Field inspection rover for robotic monitoring and maintenance assistance.</h2>
+          <p class="mb-8 leading-8 text-neutral">The MFI Rover project focused on creating a durable robotic inspection platform with efficient mobility, modular sensor integration, and control systems tuned for industrial field use.</p>
+          <div class="flex flex-wrap gap-4">
+            <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://md-masrul-khan.framer.website/mfi_rover" target="_blank">View original</a>
+            <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="mailto:masrulkhan2020@gmail.com">Contact</a>
+          </div>
+        </div>
+
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
+          <img src="/md-masrul-khan-2.jpg" alt="MFI Rover" class="h-full w-full object-cover object-center" />
+        </div>
+      </div>
+    </Section>
+
+    <Section text="Overview" href="overview" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="leading-8 text-neutral">The MFI Rover was developed to support industrial field inspections with a compact and resilient robotic platform. It integrates mobility, sensing, and remote monitoring capabilities to help teams inspect hard-to-reach areas safely.</p>
+      </div>
+    </Section>
+
+    <Section text="Contributions" href="contributions" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Mechanical Design</h3>
+          <p class="leading-8">Designed the rover chassis, suspension, and enclosure for robustness in industrial field conditions.</p>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Sensor Integration</h3>
+          <p class="leading-8">Integrated cameras, proximity sensors, and environmental instrumentation for inspection and monitoring tasks.</p>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Control Systems</h3>
+          <p class="leading-8">Configured motion control and navigation systems for smooth traversal over uneven terrain.</p>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Field Validation</h3>
+          <p class="leading-8">Performed mechanical and sensor validation to ensure reliable operation during inspection missions.</p>
+        </article>
+      </div>
+    </Section>
+
+    <Section text="Technology" href="technology" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <ul class="grid gap-4 text-neutral sm:grid-cols-2">
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Rugged rover chassis design</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Vision-based inspection sensors</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Embedded motor control</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Remote monitoring interface</li>
+          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Modular payload architecture</li>
+        </ul>
+      </div>
+    </Section>
+
+    <Section text="Outcome" href="outcome" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="leading-8 text-neutral">The MFI Rover concept delivers a reliable platform for inspection workflows, helping teams inspect remote or hazardous environments with automated sensing and safer remote operation.</p>
+      </div>
+    </Section>
+
+    <Section text="Videos" href="videos" class="py-16">
+      <div class="grid gap-6 lg:grid-cols-2">
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/Tc13JQyBb18" title="MFI Rover overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">Rover Design Demo</h3>
+            <p class="text-neutral leading-7">Review the mechanical design and field inspection capabilities of the MFI Rover concept.</p>
+          </div>
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/7kFxOp3jot4" title="MFI Rover technology" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="p-6">
+            <h3 class="mb-3 text-xl font-semibold text-white">System Integration</h3>
+            <p class="text-neutral leading-7">Highlights the sensor and control systems used to make the rover inspection-ready.</p>
+          </div>
+        </article>
+      </div>
+    </Section>
+
+    <Section text="External Links" href="external-links" class="py-16">
+      <div class="space-y-4 rounded-3xl border border-neutral/20 bg-black p-8 text-neutral">
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="https://md-masrul-khan.framer.website/mfi_rover" target="_blank">View original Framer page</a>
+        <a class="block rounded-2xl border border-neutral/20 bg-black/70 px-6 py-4 text-primary transition hover:border-primary hover:bg-[#111827]" href="mailto:masrulkhan2020@gmail.com">Contact</a>
+      </div>
+    </Section>
+
+    <Section text="Other Projects" href="other-projects" class="py-16">
+      <div class="grid gap-6 md:grid-cols-2">
+        {otherProjects.map(({ name, summary, linkPreview }) => (
+          <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+            <h3 class="mb-3 text-xl font-semibold text-white">{name}</h3>
+            <p class="mb-6 text-neutral">{summary}</p>
+            <a class="inline-flex rounded-full border border-primary/40 bg-transparent px-5 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href={linkPreview}>
+              View project
+            </a>
+          </article>
+        ))}
+      </div>
+    </Section>
+  </div>
+</Layout>

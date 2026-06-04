@@ -1,6 +1,9 @@
 ---
-import Section from "./Section.astro";
-import type { GalleryItem } from "@types";
+interface GalleryItem {
+  image: string;
+  caption?: string;
+  link?: string;
+}
 
 interface Props {
   items: GalleryItem[];
@@ -9,13 +12,26 @@ interface Props {
 const { items } = Astro.props;
 ---
 
-<Section text="Gallery" href="gallery">
-  <div class="grid grid-cols-2 gap-4 sm:grid-cols-3">
-    {items.map(({ image, title, caption }) => (
-      <figure class="overflow-hidden rounded-xl border border-neutral/20 bg-black">
-        <img src={image} alt={title ?? caption ?? 'gallery item'} class="h-48 w-full object-cover" />
-        {caption ? <figcaption class="p-2 text-sm text-neutral">{caption}</figcaption> : null}
-      </figure>
-    ))}
+<div class="overflow-hidden">
+  {/* Duplicate the items sequence to create a seamless looping scroll */}
+  <div class="flex gap-6 w-max animate-scroll">
+    {(items.concat(items)).map(({ image, caption, link }, i) => {
+      const content = (
+        <div class="max-w-[100%] md:max-w-[100%]" aria-hidden={i >= items.length}>
+          <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-black h-[16rem]">
+            <img src={image} alt={caption} class="h-full w-full object-cover" />
+          </div>
+          <p class="mt-3 text-sm text-neutral">{caption}</p>
+        </div>
+      );
+
+      return link ? (
+        <a href={link} class="block hover:opacity-80 transition">
+          {content}
+        </a>
+      ) : (
+        content
+      );
+    })}
   </div>
-</Section>
+</div>
