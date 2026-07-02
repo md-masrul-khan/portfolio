@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
 import { SITE_CONTENT } from "@config";
 import type { ProjectProps } from "@types";
 
@@ -10,26 +11,41 @@ const currentProjectName = "Spot Welding Robotic Arm";
 const otherProjects = SITE_CONTENT.projects.filter(
   ({ name }) => name !== currentProjectName,
 ) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/spot_welding_arm/1.PNG", caption: "SolidWorks robotic arm design" },
+  { image: "/project_images/spot_welding_arm/final_build.jpg", caption: "Assembled robotic arm" },
+  { image: "/project_images/spot_welding_arm/3.PNG", caption: "Electronics stack" },
+  { image: "/project_images/spot_welding_arm/5.PNG", caption: "End effector with welding electrode" },
+  { image: "/project_images/spot_welding_arm/final_build2.jpg", caption: "Assembled robotic arm" },
+  { image: "/project_images/spot_welding_arm/base_baring_load.jpg", caption: "Base bearing load" },
+  { image: "/project_images/spot_welding_arm/ckt_diagram.png", caption: "Welding control circuit" },
+  { image: "/project_images/spot_welding_arm/6.PNG", caption: "Electrode mounting" },
+];
 ---
 
 <Layout>
   <div class="min-h-screen bg-black text-neutral">
     <Section text="Spot Welding Robotic Arm" href="spotwelding_arm" class="py-16" linkHome={true}>
-      <p class="max-w-3xl text-base leading-8 text-neutral">A CAD-driven spot welding robotic arm built to automate welding tasks, improve consistency, and reduce human exposure to hot welding environments.</p>
+      <p class="max-w-3xl text-base leading-8 text-neutral">A 5 DOF manipulator developed to repetitively spot weld following a pre-defined trajectory and monitors the task space for human safety.</p>
 
-      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
         <div>
           <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
-          <h2 class="mb-5 text-4xl font-semibold text-white">Spot welding automation with a precision robotic arm and custom electrode mount.</h2>
-          <p class="mb-8 leading-8 text-neutral">The arm combines SolidWorks design, a 3D-printable welding probe mount, and an electronics circuit for controlled welding current to join metal sheets safely and repeatably.</p>
+          <h2 class="mb-5 text-4xl font-semibold text-white">5 DOF Spot Welding Robotic Arm</h2>
+          <p class="mb-8 leading-8 text-neutral">This device is built with servo motors for arm actuation, a high-current spot welding circuit, and a camera to observe human entrance in its task space and immediately stops it routine welding cycle.</p>
           <div class="flex flex-wrap gap-4">
             <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://md-masrul-khan.framer.website/spotwelding_arm" target="_blank">View original</a>
             <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="mailto:masrulkhan2020@gmail.com">Contact</a>
           </div>
         </div>
-
-        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
-          <img src="https://i.ytimg.com/vi_webp/Tc13JQyBb18/sddefault.webp" alt="Spot Welding Robotic Arm" class="h-full w-full object-cover object-center" />
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/spot_welding_arm/final_build.jpg" alt="Spot Welding Robotic Arm design" class="h-full w-full object-cover object-center" />
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/spot_welding_arm/final_build2.jpg" alt="Spot Welding Robotic Arm" class="h-full w-full object-cover object-center" />
         </div>
       </div>
     </Section>
@@ -38,45 +54,56 @@ const otherProjects = SITE_CONTENT.projects.filter(
       <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
         <p class="leading-8 text-neutral">The Spot Welding Robotic Arm automates the welding process with precise electrode positioning, repeatable motion, and safer operation. It was designed to weld complex shapes and patterns while protecting humans from high-temperature and hazardous conditions.</p>
       </div>
+      <div class="grid grid-cols-1 gap-4">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[24rem]">
+          <img
+            src="/project_images/spot_welding_arm/2.PNG"
+            alt="Spot Welding Robotic Arm Overview"
+            class="h-[250] w-f[400]] object-cover"
+          />
+      </div>
     </Section>
 
     <Section text="Contributions" href="contributions" class="py-16">
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">Design Research</h3>
-          <p class="leading-8">Researched materials, welding technologies, and mechanical approaches to create a practical robotic welding arm concept.</p>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Mechanical Design and System Development</h3>
+          <p class="leading-8 text-justify">I contributed to the mechanical design and development of the spot welding robotic arm, focusing on creating a stable and efficient manipulator capable of performing repetitive welding operations. The design process involved selecting suitable actuators, optimizing the arm structure, and ensuring sufficient reach and payload capacity for industrial spot welding applications.</p>
+          <!-- <img src="/project_images/SpotWeldingArm/design.jpg" alt="Spot Welding Arm design" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+            -->
+          </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Human Safety System Integration</h3>
+          <p class="leading-8 text-justify">A key aspect of the project was the implementation of human safety features to enable safer operation in shared workspaces. I participated in designing and integrating safety mechanisms that detect human presence within the robot's operating area and trigger appropriate responses, such as motion reduction, operation pause, or emergency stop, to minimize the risk of accidents.</p>
+          <!--
+          <img src="/project_images/SpotWeldingArm/cad.jpg" alt="CAD design" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">CAD and Mechanical Design</h3>
-          <p class="leading-8">Designed the robotic arm structure and end-effector in SolidWorks, optimizing for stability, assembly, and manufacturability.</p>
-        </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">End-Effector Integration</h3>
-          <p class="leading-8">Developed a 3D-printable mount to hold the welding probe and maintain consistent electrode contact during welding cycles.</p>
-        </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">Electronics & Control</h3>
-          <p class="leading-8">Designed the control electronics to provide sufficient current for welding and ensure safe operation of the robotic arm.</p>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Control and Automation</h3>
+          <p class="leading-8 text-justify">I worked on the control architecture of the robotic arm, integrating sensors, actuators, and control algorithms to achieve reliable spot welding operations. The system was designed to execute predefined welding sequences while maintaining positioning accuracy and repeatability, improving both productivity and weld quality.</p>
+          <!--
+          <img src="/project_images/SpotWeldingArm/electrode.jpg" alt="Electrode" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
+          </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Collaborative Operation</h3>
+          <p class="leading-8 text-justify">To enhance collaborative operation, I contributed to the development of a human-aware safety framework that continuously monitored the robot's workspace. By integrating sensing and decision-making mechanisms, the system was capable of adapting its behavior in the presence of nearby operators, promoting safer human-robot interaction while maintaining operational efficiency during spot welding tasks.</p>
+          <!--
+          <img src="/project_images/SpotWeldingArm/circuit.jpg" alt="Control circuit" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
       </div>
     </Section>
 
-    <Section text="Components" href="components" class="py-16">
+    <Section text="Impact" href="impact" class="py-16">
       <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <ul class="grid gap-4 text-neutral sm:grid-cols-2">
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">SolidWorks 2020 design</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Spot welding electrode end-effector</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">3D-printable welding probe mount</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Welding current control circuit</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Automation and precision motion</li>
-        </ul>
+        <p class="leading-8 text-neutral">This project delivered a welding automation concept with robust mechanical layout, safer operator conditions, and repeatable weld quality through precise robotic control. It demonstrates integration of mechanical design, electronics, and automation for industrial applications.</p>
       </div>
     </Section>
 
-    <Section text="Outcome" href="outcome" class="py-16">
-      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <p class="leading-8 text-neutral">This project delivered a welding automation concept with a robust mechanical layout, safer operator conditions, and repeatable weld quality through precise robotic control.</p>
-      </div>
+    <Section text="Gallery" href="gallery" class="py-16">
+      <ProjectGallery items={galleryItems} />
     </Section>
 
     <Section text="Videos" href="videos" class="py-16">

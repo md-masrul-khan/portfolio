@@ -1,0 +1,319 @@
+---
+import Layout from "@layouts/Layout.astro";
+import Section from "@components/Section.astro";
+import "../styles/global.css";
+import WebsiteButtons from "@components/WebsiteButtons.astro";
+
+// Award data with certificate images
+// Easy to modify structure for adding new awards
+// Award data with certificate images
+// Easy to modify structure for adding new awards
+// Each award can include a `websites` array with multiple links
+const awardsWithCertificates = [
+  //Autonomous Rover Rally 2025
+ {
+    title: "2nd Place - Autonomous Rover Rally",
+    issuer: "Mars Autonomous Rover Rally Design Challenge",
+    year: "2025",
+    description: "Recognized for outstanding performance and innovation in autonomous robotics and mechanical design.",
+    websites: [
+      { href: "https://github.com/SimDynamX/SpaceTeamsPRO/discussions/158", title: "Rover Rally details", label: "See the leaderboard" },
+      { href: "https://youtu.be/pW_13mUVwUA?si=QOAndcd0zpfCZEDh", title: "Rover Rally media", label: "See simulation" },
+      { href: "https://youtu.be/d-4acDnX9nA?si=meEwaK_c5OAyAsLU", title: "Rover Rally media", label: "See explanation" },
+    
+    ],
+    certificateImages: [
+      {
+        src: "/awards/rover_rally.png",
+        alt: "Rover Rally certificate",
+        className: "aspect-[4/3] h-[28rem]",
+      },
+      {
+        src: "/awards/leaderboard_rover.jpg",
+        alt: "Rover Rally award certificate",
+        className: "aspect-[4/3] h-[24rem]",
+      },
+    ],
+  },
+  // RoboSub 2025
+  {
+    title: "Onsite Participation in RoboSub Competition",
+    issuer: "RoboNation",
+    year: "2025",
+    description: "Participated as a Mechanical Lead of team BengalSub in RoboSub 25 organized by RoboNation in Californica, USA.",
+    websites: [
+      { href: "https://example.com/robosub25", title: "RoboSub 25 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/robosub25.jpg",
+        alt: "RoboSub 25 participation certificate",
+        className: "aspect-[4/3] h-[26rem]",
+      },
+    ],
+  },
+  // IRDC 2023
+  {
+    title: "International Rover Design Challenge (IRDC) 2023",
+    issuer: "Space Robotics Society (spros)",
+    year: "2023",
+    description: "Recognition for participation and performance in the International Rover Design Challenge (IRDC) 2023, showcasing excellence in rover design and innovation.",
+    websites: [
+      { href: "https://example.com/irdc23", title: "IRDC 2023 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/irdc23.jpg",
+        alt: "International Rover Design Challenge certificate",
+        className: "aspect-[3/2] h-[26rem]",
+      },
+    ],
+  },
+  // IRC 2024
+  {
+    title: "International Rover Challenge (IRC) 2024",
+    issuer: "Space Robotics Society (spros)",
+    year: "2024",
+    description: "Recognition for outstanding performance and innovation in rover design and engineering.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/irc24.jpg",
+        alt: "International Rover Challenge certificate",
+        className: "aspect-[16/9] h-[22rem]",
+      },
+    ],
+  },
+  // Team durbar
+  {
+    title: "Appreciation for contribution to  the Team Durbar",
+    issuer: "KUET Mars Rover Team Durbar",
+    year: "2024",
+    description: "Appreciation for significant contributions and dedication to the success of Team Durbar by leading and working for various robotics competitions.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/team_durbar.jpg",
+        alt: "Team Durbar appreciation certificate",
+        className: "aspect-[4/3] h-[26rem]",
+      },
+    ],
+  },
+  // CADers
+  {
+    title: "Appreciation for contribution to the Club CADers",
+    issuer: "CADers - KUET CAD Society",
+    year: "2024",
+    description: "Appreciation for significant contributions and dedication to the success of club CADers as a IT an Resource officer by conducting CAD workshops and Mentoring New learners.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/caders.jpg",
+        alt: "CADers appreciation certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // FabLab
+  {
+    title: "Appreciation for contribution to the FabLab",
+    issuer: "FabLab - KUET Fabrication Lab",
+    year: "2024",
+    description: "Appreciation for significant contributions, dedicationm, and providing technical support to operates fabrication machines and tools such as 3D printers, Laser Cutters, CNC machines, PCB milling machines, and more in the FabLab.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/fablab.jpg",
+        alt: "FabLab appreciation certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // CSWP
+  {
+    title: "Certified SolidWorks Professional (CSWP)",
+    issuer: "Dassault Systèmes",
+    year: "2022",
+    description: "Certification for demonstrating advanced proficiency in SolidWorks, showcasing expertise in 3D modeling, assembly design, and engineering analysis.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/cswp.jpg",
+        alt: "CSWP certification certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // CSWA-Sustainability
+  {
+    title: "Certified SolidWorks Associate - Sustainability (CSWA-Sustainability)",
+    issuer: "Dassault Systèmes",
+    year: "2021",
+    description: "Certification for demonstrating proficiency in sustainable design principles using SolidWorks, showcasing knowledge of environmental impact assessment and eco-friendly engineering practices.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/cswa_sustainability.jpg",
+        alt: "CSWA-Sustainability certification certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // CSWA-Additive Manufacturing
+  {
+    title: "Certified SolidWorks Associate - Additive Manufacturing (CSWA-Additive Manufacturing)",
+    issuer: "Dassault Systèmes",
+    year: "2021",
+    description: "Certification for demonstrating proficiency in additive manufacturing principles using SolidWorks, showcasing knowledge of 3D printing technologies and design for additive manufacturing.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/cswa_additive_manufacturing.jpg",
+        alt: "CSWA-Additive Manufacturing certification certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // CSWA - Mechanical Design
+  {
+    title: "Certified SolidWorks Associate - Mechanical Design (CSWA-Mechanical Design)",
+    issuer: "Dassault Systèmes",
+    year: "2021",
+    description: "Certification for demonstrating proficiency in mechanical design principles using SolidWorks, showcasing knowledge of 3D modeling, assembly design, and engineering analysis.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/cswa_mechanical_design.jpg",
+        alt: "CSWA-Mechanical Design certification certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // Supervised Machine Learning
+  {
+    title: "Completion of Supervised Machine Learning: Regression and Classification",
+    issuer: "Standford University (Coursera)",
+    year: "2024",
+    description: "Certification for successfully completing the Supervised Machine Learning: Regression and Classification course offered by Stanford University on Coursera, demonstrating proficiency in machine learning algorithms and techniques for regression and classification tasks.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/ml_supervised.jpg",
+        alt: "Supervised Machine Learning certification certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // Advanced Learning Algorithms
+  {
+    title: "Completion of Advanced Learning Algorithms",
+    issuer: "Standford University (Coursera)",
+    year: "2024",
+    description: "Certification for successfully completing the Advanced Learning Algorithms course offered by Stanford University on Coursera, demonstrating proficiency in advanced machine learning techniques and their applications.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/ml_advanced_algorithm.jpg",
+        alt: "Supervised Machine Learning certification certificate",
+        className: "aspect-[13/9] h-[26rem]",
+      },
+    ],
+  },
+  // Python Specialization
+  {
+    title: "Completion of Python Specialization",
+    issuer: "Michigan University (Coursera)",
+    year: "2024",
+    description: "Certification for successfully completing the Python Specialization course offered by Stanford University on Coursera, demonstrating proficiency in Python programming and its applications.",
+    websites: [
+      { href: "https://example.com/irc24", title: "IRC 2024 details", label: "Competition page" },
+    ],
+    certificateImages: [
+      {
+        src: "/awards/python_specialization.jpg",
+        alt: "Python Specialization certification certificate",
+        className: "aspect-[12/9] h-[26rem]",
+      },
+    ],
+  },
+];
+---
+<Layout>
+  <div class="min-h-screen bg-black text-neutral">
+    <Section text="Awards & Certifications" href="awards" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">
+        A collection of awards, certifications, and recognition received for excellence in robotics, research, and engineering. Each award represents dedication to technical innovation, professional growth, and meaningful contributions to the field.
+      </p>
+    </Section>
+
+    <Section text="Awards & Certifications" href="awards-list" class="py-16">
+      <div class="space-y-8">
+        {awardsWithCertificates.map(({ title, issuer, year, description, websites, certificateImages }) => (
+          <article class="overflow-hidden rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
+            {/* Award Header */}
+            <div class="p-8 sm:p-10">
+              <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">{issuer}</p>
+              <h3 class="mb-4 text-3xl font-semibold text-white">{title}</h3>
+              <p class="mb-6 text-base leading-8 text-neutral text-justify">{description}</p>
+              <div class="flex flex-wrap items-center gap-4">
+                <p class="text-sm font-medium text-primary">{year}</p>
+                <WebsiteButtons websites={websites} />
+              </div>
+            </div>
+
+            {/* Certificate Images */}
+            {certificateImages?.length && (
+              <div class="space-y-4 px-8 pb-8 sm:px-10">
+                {certificateImages.map(({ src, alt, className }) => (
+                  <div
+                    class={[
+                      'relative mx-auto overflow-hidden rounded-3xl bg-[#111827]/70 flex items-center justify-center',
+                      className ?? 'aspect-video h-[22rem]'
+                    ].join(' ')}
+                  >
+                    <img
+                      src={src}
+                      alt={alt}
+                      class="h-full w-full object-cover object-center"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+          </article>
+        ))}
+      </div>
+    </Section>
+
+    <Section text="Impact & Recognition" href="impact" class="py-16">
+      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
+        <p class="mb-6 leading-8">
+          These awards and certifications validate the commitment to excellence in engineering, research, and innovation. They represent milestones achieved through continuous learning, collaboration with teams, and dedication to solving complex technical challenges.
+        </p>
+        <p class="leading-8">
+          Each recognition serves as motivation to push boundaries further and contribute meaningfully to advancements in robotics and automation technologies.
+        </p>
+      </div>
+    </Section>
+  </div>
+</Layout>

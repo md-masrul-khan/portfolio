@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
 import { SITE_CONTENT } from "@config";
 import type { ProjectProps } from "@types";
 
@@ -10,6 +11,13 @@ const currentProjectName = "Weather Station";
 const otherProjects = SITE_CONTENT.projects.filter(
   ({ name }) => name !== currentProjectName,
 ) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/weather_station/1.jpg", caption: "Weather station assembled unit" },
+  { image: "/project_images/weather_station/2.PNG", caption: "CAD design" },
+  { image: "/project_images/weather_station/3.jpeg", caption: "Onboard display and interface" },
+  { image: "/project_images/weather_station/4.jpeg", caption: "Weather station assembled unit" },
+];
 ---
 
 <Layout>
@@ -17,7 +25,7 @@ const otherProjects = SITE_CONTENT.projects.filter(
     <Section text="Indoor Air Quality & Wind Detection" href="weather_station" class="py-16" linkHome={true}>
       <p class="max-w-3xl text-base leading-8 text-neutral">An IoT-based weather station for indoor air quality measurement and wind detection, monitoring temperature, humidity, CO2, CO, pressure, and light intensity with alerts to a smartphone app and onboard display.</p>
 
-      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
         <div>
           <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
           <h2 class="mb-5 text-4xl font-semibold text-white">IoT Weather Station for IAQ monitoring and airflow detection.</h2>
@@ -27,9 +35,13 @@ const otherProjects = SITE_CONTENT.projects.filter(
             <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="mailto:masrulkhan2020@gmail.com">Contact</a>
           </div>
         </div>
-
-        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
-          <img src="https://i.ytimg.com/vi_webp/LLLMujGoXyc/sddefault.webp" alt="Weather Station" class="h-full w-full object-cover object-center" />
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/weather_station/1.jpg" alt="Weather Station design" class="h-full w-full object-cover object-center" />
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/weather_station/2.PNG" alt="Weather Station" class="h-full w-full object-cover object-center" />
         </div>
       </div>
     </Section>
@@ -42,41 +54,37 @@ const otherProjects = SITE_CONTENT.projects.filter(
 
     <Section text="Contributions" href="contributions" class="py-16">
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Sensor Integration</h3>
-          <p class="leading-8">Integrated sensors for temperature, humidity, pressure, CO2, CO, and light intensity with calibration and thresholding.</p>
+          <p class="leading-8 text-justify">Integrated sensors for temperature, humidity, pressure, CO2, CO, and light intensity with calibration and thresholding.</p>
+          
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Embedded System</h3>
-          <p class="leading-8">Implemented microcontroller firmware for data acquisition, processing, and connectivity to mobile apps.</p>
+          <p class="leading-8 text-justify">Implemented microcontroller firmware for data acquisition, processing, and connectivity to mobile apps.</p>
+          
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Airflow Detection</h3>
-          <p class="leading-8">Designed algorithms to detect changes in airflow and wind direction within indoor spaces to support ventilation analysis.</p>
+          <p class="leading-8 text-justify">Designed algorithms to detect changes in airflow and wind direction within indoor spaces to support ventilation analysis.</p>
+          
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">App Integration</h3>
-          <p class="leading-8">Added alerting and reporting via smartphone app and visual indicators on the device for safety notifications.</p>
+          <p class="leading-8 text-justify">Added alerting and reporting via smartphone app and visual indicators on the device for safety notifications.</p>
+          
         </article>
       </div>
     </Section>
 
-    <Section text="Components" href="components" class="py-16">
+    <Section text="Impact" href="impact" class="py-16">
       <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <ul class="grid gap-4 text-neutral sm:grid-cols-2">
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Temperature & Humidity sensors</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">CO2 & CO detectors</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Pressure & Light sensors</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Microcontroller data logger</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Smartphone alert integration</li>
-        </ul>
+        <p class="leading-8 text-neutral">This IAQ & airflow monitoring prototype provides actionable alerts and supports indoor environmental analysis for improved comfort and safety. It demonstrates effective sensor fusion, embedded systems design, and mobile connectivity.</p>
       </div>
     </Section>
 
-    <Section text="Outcome" href="outcome" class="py-16">
-      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <p class="leading-8 text-neutral">Delivered an IAQ & airflow monitoring prototype that provides actionable alerts and supports indoor environmental analysis for improved comfort and safety.</p>
-      </div>
+    <Section text="Gallery" href="gallery" class="py-16">
+      <ProjectGallery items={galleryItems} />
     </Section>
 
     <Section text="Videos" href="videos" class="py-16">

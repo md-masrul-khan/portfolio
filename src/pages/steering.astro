@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
 import { SITE_CONTENT } from "@config";
 import type { ProjectProps } from "@types";
 
@@ -10,6 +11,15 @@ const currentProjectName = "Steering Simulator";
 const otherProjects = SITE_CONTENT.projects.filter(
   ({ name }) => name !== currentProjectName,
 ) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/steering_simulator/1.jpg", caption: "Steering simulator assembly" },
+  { image: "/project_images/steering_simulator/2.jpg", caption: "Internal circuit of steering simulator" },
+  { image: "/project_images/steering_simulator/3.PNG", caption: "ATmega32 control circuit diagram" },
+  { image: "/project_images/steering_simulator/4.PNG", caption: "CAD design of steering mechanism" },
+  { image: "/project_images/steering_simulator/5.PNG", caption: "CAD design of pedal mechanism" },
+  { image: "/project_images/steering_simulator/6.jpg", caption: "Physical prototype of pedal" },
+];
 ---
 
 <Layout>
@@ -17,7 +27,7 @@ const otherProjects = SITE_CONTENT.projects.filter(
     <Section text="Steering Simulator" href="steering" class="py-16" linkHome={true}>
       <p class="max-w-3xl text-base leading-8 text-neutral">A steering simulator built with ATmega32 that delivers realistic steering dynamics for embedded system testing and vehicle control evaluation.</p>
 
-      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
         <div>
           <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
           <h2 class="mb-5 text-4xl font-semibold text-white">ATmega32-based steering simulator for realistic prototype evaluation.</h2>
@@ -27,9 +37,13 @@ const otherProjects = SITE_CONTENT.projects.filter(
             <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="mailto:masrulkhan2020@gmail.com">Contact</a>
           </div>
         </div>
-
-        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
-          <img src="https://i.ytimg.com/vi_webp/LLLMujGoXyc/sddefault.webp" alt="Steering Simulator" class="h-full w-full object-cover object-center" />
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/steering_simulator/1.jpg" alt="Steering Simulator design" class="h-full w-full object-cover object-center" />
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/steering_simulator/4.PNG" alt="Steering Simulator" class="h-full w-full object-cover object-center" />
         </div>
       </div>
     </Section>
@@ -42,45 +56,49 @@ const otherProjects = SITE_CONTENT.projects.filter(
 
     <Section text="Contributions" href="contributions" class="py-16">
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Embedded Systems</h3>
-          <p class="leading-8">Implemented ATmega32-based control logic to replicate steering torque, position sensing, and simulator response.</p>
+          <p class="leading-8 text-justify">Implemented ATmega32-based control logic to replicate steering mechanisms, position sensing, and simulator response.</p>
+          <!--
+          <img src="/project_images/SteeringSimulator/circuit.jpg" alt="Control circuit" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">SolidWorks Design</h3>
-          <p class="leading-8">Created CAD designs for the steering wheel assembly, pedal interface, and chassis with manufacturability in mind.</p>
+          <p class="leading-8 text-justify">Created CAD designs for the steering wheel assembly, pedal interface, and chassis with manufacturability in mind.</p>
+          <!--
+          <img src="/project_images/SteeringSimulator/design.jpg" alt="SolidWorks design" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Circuit Architecture</h3>
-          <p class="leading-8">Designed the circuit setup for reliable signal processing, motor control, and sensor feedback inside the simulator.</p>
+          <p class="leading-8 text-justify">Designed the circuit setup for reliable signal processing, device control, and sensor feedback inside the simulator.</p>
+          <!--
+          <img src="/project_images/SteeringSimulator/circuit.jpg" alt="Circuit design" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">User Interaction</h3>
-          <p class="leading-8">Built a realistic interface with steering wheel, pedals, and user controls to mirror actual driving behavior.</p>
+          <p class="leading-8 text-justify">Built a realistic interface with steering wheel, pedals, and user controls to mirror actual driving behavior.</p>
+          <!--
+          <img src="/project_images/SteeringSimulator/wheel.jpg" alt="User interface" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
       </div>
     </Section>
 
-    <Section text="Technology" href="technology" class="py-16">
+    <Section text="Impact" href="impact" class="py-16">
       <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <ul class="grid gap-4 text-neutral sm:grid-cols-2">
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">ATmega32 microcontroller</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">SolidWorks steering design</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Custom steering circuit</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Real-time pedal and wheel control</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Interactive simulator feedback</li>
-        </ul>
+        <p class="leading-8 text-neutral">The steering simulator demonstrates the integration of embedded systems, mechanical design, and circuit engineering to create a functional prototype for testing steering behavior safely and efficiently.</p>
       </div>
     </Section>
 
-    <Section text="Outcome" href="outcome" class="py-16">
-      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <p class="leading-8 text-neutral">The result is a functional steering simulator that supports safe testing of steering systems, allowing precise evaluation of controller performance and mechanical behavior before full-scale implementation.</p>
-      </div>
+    <Section text="Gallery" href="gallery" class="py-16">
+      <ProjectGallery items={galleryItems} />
     </Section>
 
     <Section text="Videos" href="videos" class="py-16">
-      <div class="grid gap-6 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-1">
         <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
           <div class="relative aspect-video overflow-hidden rounded-t-3xl">
             <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/LLLMujGoXyc" title="Steering Simulator demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -90,6 +108,7 @@ const otherProjects = SITE_CONTENT.projects.filter(
             <p class="text-neutral leading-7">See the ATmega32 steering simulator in action and review the system behavior under load.</p>
           </div>
         </article>
+        <!--
         <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
           <div class="relative aspect-video overflow-hidden rounded-t-3xl">
             <img class="absolute inset-0 h-full w-full object-cover" src="https://i.ytimg.com/vi_webp/LLLMujGoXyc/sddefault.webp" alt="Steering system design" />
@@ -99,6 +118,7 @@ const otherProjects = SITE_CONTENT.projects.filter(
             <p class="text-neutral leading-7">Highlights the steering wheel, added pedal controls, and circuit design for embedded system simulation.</p>
           </div>
         </article>
+        -->
       </div>
     </Section>
 

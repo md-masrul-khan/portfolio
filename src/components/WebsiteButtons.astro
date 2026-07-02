@@ -1,0 +1,23 @@
+---
+interface Website {
+  href: string;
+  title?: string;
+  label?: string;
+}
+
+const { websites } = Astro.props as { websites?: Website[] };
+---
+
+<div class="flex flex-wrap items-center gap-4">
+  {websites?.map(({ href, title, label }) => (
+    <a
+      href={href}
+      target="_blank"
+      rel="noreferrer"
+      aria-label={label ?? title ?? "View website"}
+      class="rounded-full border border-primary/40 bg-transparent px-5 py-3 text-sm font-medium text-primary transition hover:bg-primary/10"
+    >
+      {label ?? title ?? "View website"}
+    </a>
+  ))}
+</div>

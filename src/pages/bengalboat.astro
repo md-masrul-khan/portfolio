@@ -13,12 +13,13 @@ const otherProjects = SITE_CONTENT.projects.filter(
 ) as ProjectProps[];
 
 const galleryItems = [
-  { image: "/project_images/BengalBoat/team.jpeg", caption: "Team photo" },
-  { image: "/project_images/BengalBoat/asv1_render.png", caption: "BengalBoat 1.0" },
-  { image: "/project_images/BengalBoat/asv2_render.png", caption: "BengalBoat 2.0" },
-  { image: "/project_images/BengalBoat/asv_test1.jpg", caption: "Sea trials" },
-  { image: "/project_images/BengalBoat/asv_test2.jpg", caption: "Autonomy testing" },
-  { image: "/project_images/BengalBoat/asv_deck.jpg", caption: "Deck layout" },
+  { image: "/project_images/BengalBoat/team_bengalboat.jpg", caption: "Team photo" },
+  { image: "/project_images/BengalBoat/bijoy_tori.jpg", caption: "BijoyTori 1.0" },
+  { image: "/project_images/BengalBoat/iso.jpg", caption: "ASV CAD model" },
+  { image: "/project_images/BengalBoat/tori1.jpg", caption: "Testing" },
+  { image: "/project_images/BengalBoat/hull.jpg", caption: "Hull design" },
+  { image: "/project_images/BengalBoat/ebox4.jpg", caption: "Electronics bay" },
+  { image: "/project_images/BengalBoat/tori2.jpg", caption: "Deck layout" },
 ];
 ---
 
@@ -68,6 +69,7 @@ const galleryItems = [
           <h3 class="mb-3 text-xl font-semibold text-white">Mechanical Design</h3>
           <p class="leading-8 text-justify">Led the hull design and structural mounts for electronics and payloads, prioritizing low drag and easy maintenance. Designed modular mounting plates to swap sensors quickly between missions.</p>
           <img src="/project_images/BengalBoat/mountings_cad.png" alt="ASV structure" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+          <img src="/project_images/BengalBoat/frame_mount.jpg" alt="ASV structure" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
           
         </article>
         <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
@@ -76,14 +78,14 @@ const galleryItems = [
           <img src="/project_images/BengalBoat/cam_lidar_stand.jpg" alt="Sensors" class="mt-6 h-[500px] w-full rounded-3xl object-cover" />
         </article>
         <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">Propulsion & Power</h3>
-          <p class="leading-8 text-justify">Designed propulsion layout with twin thrusters and variable pitch control for efficient cruising. Upgraded power systems to support longer missions and higher payload draws.</p>
-          <img src="/project_images/BengalBoat/asv_propulsion.jpg" alt="Propulsion" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+          <h3 class="mb-3 text-xl font-semibold text-white">Propulsion & Navigation</h3>
+          <p class="leading-8 text-justify">Designed a propulsion layout with four T-200 thrusters, enabling the vehicle to have 3 DOF (Surge, Sway, Yaw) motion to give proper flexibility to the autonomous system. And the navigation of the vehicle relies on camera perception, VectorNav’s IMU, velocity, and GPS location fusion in the ROS2 frame.</p>
+          <img src="/project_images/BengalBoat/tori3.jpg" alt="Propulsion" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
         </article>
         <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Team Coordination</h3>
-          <p class="leading-8 text-justify">Coordinated with electrical and software teams to integrate navigation algorithms, sensor suites, and telemetry systems. Conducted sea trials and iterated on mechanical fixes based on test feedback.</p>
-          <img src="/project_images/BengalBoat/asv_deck.jpg" alt="Team coordination" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
+          <p class="leading-8 text-justify">Coordinated between mechanical, electrical, and software sub-teams to integrate navigation algorithms, sensor suites, and telemetry systems. Conducted pool and lake trials and iterated on mechanical fixes based on test feedback. Also worked as a policy and strategy maker during a crucial competitive period.</p>
+          <img src="/project_images/BengalBoat/team_bengalboat.jpg" alt="Team coordination" class="mt-6 h-[250px] w-full rounded-3xl object-cover" />
         </article>
       </div>
     </Section>
@@ -97,17 +99,17 @@ const galleryItems = [
     <Section text="Videos" href="videos" class="py-16">
       <div class="grid gap-6 lg:grid-cols-2">
         <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
-          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
-            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/" title="BengalBoat demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="relative aspect-[9/12] overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/8CSFicT7rHo" title="BengalBoat demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="p-6">
-            <h3 class="mb-3 text-xl font-semibold text-white">BengalBoat Sea Trials</h3>
-            <p class="text-neutral leading-7">Short demo of the ASV performing waypoint following and basic obstacle avoidance.</p>
+            <h3 class="mb-3 text-xl font-semibold text-white">BengalBoat First Task in Florida</h3>
+            <p class="text-neutral leading-7">BijoyTori 1.0 successfully completed the autonomous gate-passing task while compensating for tidal disturbances and environmental drift.</p>
           </div>
         </article>
         <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
-          <div class="relative aspect-video overflow-hidden rounded-t-3xl">
-            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/" title="BengalBoat design" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          <div class="relative aspect-[9/12] overflow-hidden rounded-t-3xl">
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/yopl04_EqbQ" title="BengalBoat design" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="p-6">
             <h3 class="mb-3 text-xl font-semibold text-white">Design Overview</h3>

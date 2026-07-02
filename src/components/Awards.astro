@@ -10,6 +10,9 @@ const { awards } = Astro.props;
 ---
 
 <Section text="Awards" href="awards">
+  <div class="mb-8 max-w-3xl">
+    <p class="text-base leading-8 text-neutral">Recognition and awards received for excellence in robotics, research, and engineering achievements. These certifications represent dedication to technical innovation and professional development.</p>
+  </div>
   <div class="grid gap-4">
     {awards.map(({ title, issuer, year, description }) => (
       <div class="rounded-xl border border-neutral/20 bg-black p-4">
@@ -18,5 +21,10 @@ const { awards } = Astro.props;
         {description ? <p class="mt-2 text-neutral">{description}</p> : null}
       </div>
     ))}
+  </div>
+  <div class="mt-8">
+    <a href="/awards" class="inline-flex rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90">
+      View all awards
+    </a>
   </div>
 </Section>

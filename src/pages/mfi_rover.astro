@@ -1,6 +1,7 @@
 ---
 import Layout from "@layouts/Layout.astro";
 import Section from "@components/Section.astro";
+import ProjectGallery from "@components/ProjectGallery.astro";
 import { SITE_CONTENT } from "@config";
 import type { ProjectProps } from "@types";
 
@@ -10,86 +11,102 @@ const currentProjectName = "MFI Rover";
 const otherProjects = SITE_CONTENT.projects.filter(
   ({ name }) => name !== currentProjectName,
 ) as ProjectProps[];
+
+const galleryItems = [
+  { image: "/project_images/mfi_rover/1.jpg", caption: "MFI Rover overview" },
+  { image: "/project_images/mfi_rover/2.jpg", caption: "Mechanical design" },
+  { image: "/project_images/mfi_rover/3.jpg", caption: "Field testing" },
+  { image: "/project_images/mfi_rover/4.jpg", caption: "Sensor integration" },
+];
 ---
 
 <Layout>
   <div class="min-h-screen bg-black text-neutral">
-    <Section text="MFI Rover" href="mfi_rover" class="py-16" linkHome={true}>
-      <p class="max-w-3xl text-base leading-8 text-neutral">Designed a mobile field inspection rover for MFI, combining rugged robotics, precision sensing, and autonomous navigation for industrial environments.</p>
+    <Section text="MFI Rover - Military, Fire-fighter and Industrial Rover" href="mfi_rover" class="py-16" linkHome={true}>
+      <p class="max-w-3xl text-base leading-8 text-neutral">The MFI Rover is an advanced, all-terrain robotic platform built for military, firefighting, and industrial missions. It delivers remote inspection, sensing, and support capabilities in hazardous environments while improving operator safety and operational efficiency.</p>
 
-      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+      <div class="mt-10 grid gap-8 rounded-3xl border border-neutral/20 bg-black p-6 shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)] sm:p-10 lg:grid-cols-1 lg:items-center">
         <div>
           <p class="mb-3 text-sm uppercase tracking-[0.28em] text-primary">Project details</p>
-          <h2 class="mb-5 text-4xl font-semibold text-white">Field inspection rover for robotic monitoring and maintenance assistance.</h2>
-          <p class="mb-8 leading-8 text-neutral">The MFI Rover project focused on creating a durable robotic inspection platform with efficient mobility, modular sensor integration, and control systems tuned for industrial field use.</p>
+          <h2 class="mb-5 text-4xl font-semibold text-white">Multipurpose rover for reconnaissance, firefighting, and industrial inspection.</h2>
+          <p class="mb-8 leading-8 text-neutral">This rover integrates rugged mobility, precision sensing, and modular payloads to support reconnaissance, rescue, inspection, and hazardous operations in complex field conditions.</p>
           <div class="flex flex-wrap gap-4">
             <a class="rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90" href="https://md-masrul-khan.framer.website/mfi_rover" target="_blank">View original</a>
             <a class="rounded-full border border-primary/40 bg-transparent px-6 py-3 text-sm font-medium text-primary transition hover:bg-primary/10" href="mailto:masrulkhan2020@gmail.com">Contact</a>
           </div>
         </div>
-
-        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[32rem]">
-          <img src="/md-masrul-khan-2.jpg" alt="MFI Rover" class="h-full w-full object-cover object-center" />
+      </div>
+      <div class="grid grid-cols-2 gap-4 mt-10">
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/mfi_rover/1.jpg" alt="MFI Rover design" class="h-full w-full object-cover object-center" />
+        </div>
+        <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-[#111827]/70 shadow-[inset_0_0_0_1px_rgba(148,163,184,0.08)] h-[15rem]">
+          <img src="/project_images/mfi_rover/2.jpg" alt="MFI Rover" class="h-full w-full object-cover object-center" />
         </div>
       </div>
     </Section>
 
     <Section text="Overview" href="overview" class="py-16">
       <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <p class="leading-8 text-neutral">The MFI Rover was developed to support industrial field inspections with a compact and resilient robotic platform. It integrates mobility, sensing, and remote monitoring capabilities to help teams inspect hard-to-reach areas safely.</p>
+        <p class="leading-8 text-neutral">The Multipurpose Rover is an advanced, all-terrain robot designed to perform critical operations in challenging and hazardous environments. With applications across military operations, firefighting, and industrial settings, it is engineered to enhance human safety, improve operational efficiency, and provide real-time data for decision-making.</p>
       </div>
     </Section>
 
     <Section text="Contributions" href="contributions" class="py-16">
       <div class="grid gap-6 md:grid-cols-2">
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">Mechanical Design</h3>
-          <p class="leading-8">Designed the rover chassis, suspension, and enclosure for robustness in industrial field conditions.</p>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Military Operations</h3>
+          <p class="leading-8 text-justify">Reconnaissance and surveillance in high-risk zones, Explosive Ordnance Disposal (EOD) support, and supply delivery to frontline teams.</p>
+          <!-- 
+          <img src="/project_images/MFIRover/military.jpg" alt="Military operations" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Firefighting</h3>
+          <p class="leading-8 text-justify">Fire detection and hotspot localization, victim search and rescue in hazardous areas, and remote operation to reduce firefighter exposure.</p>
+          <!-- 
+          <img src="/project_images/MFIRover/firefighting.jpg" alt="Firefighting" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
+          <h3 class="mb-3 text-xl font-semibold text-white">Industrial Inspection</h3>
+          <p class="leading-8 text-justify">Inspection of pipelines, equipment, and factory floors, maintenance assistance, and emergency response during industrial accidents.</p>
+          <!--
+          <img src="/project_images/MFIRover/industrial.jpg" alt="Industrial" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
+        </article>
+        <article class="rounded-3xl border border-neutral/20 bg-black/80 p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
           <h3 class="mb-3 text-xl font-semibold text-white">Sensor Integration</h3>
-          <p class="leading-8">Integrated cameras, proximity sensors, and environmental instrumentation for inspection and monitoring tasks.</p>
-        </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">Control Systems</h3>
-          <p class="leading-8">Configured motion control and navigation systems for smooth traversal over uneven terrain.</p>
-        </article>
-        <article class="rounded-3xl border border-neutral/20 bg-black p-6 text-neutral transition hover:border-primary/50 hover:bg-[#111827]/95">
-          <h3 class="mb-3 text-xl font-semibold text-white">Field Validation</h3>
-          <p class="leading-8">Performed mechanical and sensor validation to ensure reliable operation during inspection missions.</p>
+          <p class="leading-8 text-justify">Multi-sensor fusion for remote monitoring, autonomous navigation, modular payload systems, and emergency hazard detection capabilities.</p>
+          <!--
+          <img src="/project_images/MFIRover/sensors.jpg" alt="Sensors" class="h-[250px] w-full rounded-3xl object-cover mt-6" />
+          -->
         </article>
       </div>
     </Section>
 
-    <Section text="Technology" href="technology" class="py-16">
+    <Section text="Impact" href="impact" class="py-16">
       <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <ul class="grid gap-4 text-neutral sm:grid-cols-2">
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Rugged rover chassis design</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Vision-based inspection sensors</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Embedded motor control</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Remote monitoring interface</li>
-          <li class="rounded-3xl border border-neutral/20 bg-[#111827]/80 p-5">Modular payload architecture</li>
-        </ul>
+        <p class="leading-8 text-neutral">The MFI Rover demonstrates a multipurpose robotic platform for reconnaissance, firefighting, and industrial inspection. It enables safer operations by reducing human exposure to hazards while providing reliable sensing and support capabilities in difficult environments.</p>
       </div>
     </Section>
 
-    <Section text="Outcome" href="outcome" class="py-16">
-      <div class="rounded-3xl border border-neutral/20 bg-black p-8 text-neutral shadow-[0_20px_80px_-50px_rgba(15,23,42,0.5)]">
-        <p class="leading-8 text-neutral">The MFI Rover concept delivers a reliable platform for inspection workflows, helping teams inspect remote or hazardous environments with automated sensing and safer remote operation.</p>
-      </div>
+    <Section text="Gallery" href="gallery" class="py-16">
+      <ProjectGallery items={galleryItems} />
     </Section>
 
     <Section text="Videos" href="videos" class="py-16">
-      <div class="grid gap-6 lg:grid-cols-2">
+      <div class="grid gap-6 lg:grid-cols-1">
         <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
           <div class="relative aspect-video overflow-hidden rounded-t-3xl">
-            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/Tc13JQyBb18" title="MFI Rover overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/Z1t5aC-JKp4" title="MFI Rover overview" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
           </div>
           <div class="p-6">
-            <h3 class="mb-3 text-xl font-semibold text-white">Rover Design Demo</h3>
-            <p class="text-neutral leading-7">Review the mechanical design and field inspection capabilities of the MFI Rover concept.</p>
+            <h3 class="mb-3 text-xl font-semibold text-white">Rover Application Overview</h3>
+            <p class="text-neutral leading-7">See the multipurpose capabilities of the MFI Rover for military, firefighting, and industrial operations.</p>
           </div>
         </article>
+        <!--
         <article class="rounded-3xl border border-neutral/20 bg-black shadow-[0_20px_80px_-50px_rgba(15,23,42,0.45)]">
           <div class="relative aspect-video overflow-hidden rounded-t-3xl">
             <iframe class="absolute inset-0 h-full w-full" src="https://www.youtube.com/embed/7kFxOp3jot4" title="MFI Rover technology" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -99,6 +116,7 @@ const otherProjects = SITE_CONTENT.projects.filter(
             <p class="text-neutral leading-7">Highlights the sensor and control systems used to make the rover inspection-ready.</p>
           </div>
         </article>
+        -->
       </div>
     </Section>
 
