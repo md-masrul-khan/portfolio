@@ -1,0 +1,11 @@
+//initialze
+git init
+
+//stage all project file
+git add .
+
+// commit file locally
+git commit -m "update_name"
+
+//push the code in git
+git push
