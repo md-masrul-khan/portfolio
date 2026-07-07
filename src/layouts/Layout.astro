@@ -13,10 +13,28 @@ const {
   author,
   socialLinks,
   socialImage,
-  canonicalURL = new URL(Astro.url.pathname, Astro.site).href,
+  canonicalURL,
+  keywords = [],
+  alternateNames = [],
 } = SITE_CONFIG;
 
-const ogImgUrl = canonicalURL + socialImage;
+const canonicalHref = canonicalURL ?? new URL(Astro.url.pathname, Astro.site).href;
+const ogImgUrl = new URL(socialImage, canonicalHref).href;
+const sameAs = socialLinks
+  .filter(({ href }) => !href.startsWith("mailto:"))
+  .map(({ href }) => href);
+
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: author,
+  alternateName: alternateNames,
+  jobTitle: "Mechatronics Engineer",
+  description,
+  url: canonicalHref,
+  image: ogImgUrl,
+  sameAs,
+};
 ---
 
 <!doctype html>
@@ -25,8 +43,14 @@ const ogImgUrl = canonicalURL + socialImage;
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
     <meta name="author" content={author} />
+    <meta name="keywords" content={keywords.join(", ")} />
+    <meta
+      name="robots"
+      content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1"
+    />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonicalHref} />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
@@ -35,14 +59,17 @@ const ogImgUrl = canonicalURL + socialImage;
 
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
-    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:url" content={canonicalHref} />
     <meta property="og:image" content={ogImgUrl} />
+    <meta property="og:site_name" content={author} />
 
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:url" content={canonicalHref} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
     <meta property="twitter:image" content={ogImgUrl} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
   </head>
   <body class="bg-black font-sans">
     <Header siteLogo={siteLogo} navLinks={navLinks} />

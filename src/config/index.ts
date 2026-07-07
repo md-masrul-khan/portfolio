@@ -1,10 +1,22 @@
 import type { SiteConfig, SiteContent } from "../types";
 
 export const SITE_CONFIG: SiteConfig = {
-  title: "Md Masrul Khan — Mechatronics Engineer & Robotics Enthusiast",
+  title: "Md Masrul Khan | Mechatronics Engineer & Robotics Enthusiast",
   author: "Md Masrul Khan",
   description:
-    "Mechatronics Engineer based in Khulna, Bangladesh. Passionate about robotics, automation, and embedded systems. Experienced in ROS, Python, C++, MATLAB, CAD design, and building autonomous robots.",
+    "Md Masrul Khan (Masrul / Masrul Khan) is a Mechatronics Engineer and robotics enthusiast from Khulna, Bangladesh, specializing in autonomous robotics, ROS, embedded systems, and robotic design.",
+  keywords: [
+    "Md Masrul Khan",
+    "Masrul Khan",
+    "Masrul",
+    "Mechatronics Engineer",
+    "Robotics Engineer",
+    "Robotics Enthusiast",
+    "Autonomous Robotics",
+    "ROS",
+    "Embedded Systems",
+  ],
+  alternateNames: ["Md Masrul Khan", "Masrul Khan", "Masrul"],
   lang: "en",
   siteLogo: "/md-masrul-khan.jpg",
   navLinks: [
