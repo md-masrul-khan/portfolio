@@ -13,7 +13,7 @@ const { items } = Astro.props;
 
 <div class="overflow-hidden">
   {/* Duplicate the items sequence to create a seamless looping scroll */}
-  <div class="flex gap-6 w-max animate-scroll">
+  <div class="flex gap-6 w-max animate-scroll project-animate">
     {(items.concat(items)).map(({ image, caption }, i) => (
       <div class="max-w-[20%] md:max-w-[16%]" aria-hidden={i >= items.length}>
         <div class="overflow-hidden rounded-3xl border border-neutral/20 bg-black h-[16rem]">

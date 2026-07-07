@@ -50,8 +50,9 @@
       transform: translateY(0);
     }
   }
-    /* ✅ ADD THIS FOR GALLERY SCROLL */
-  --animate-scroll: scroll 25s linear infinite;
+
+  /* ✅ ADD THIS FOR GALLERY SCROLL */
+  --animate-scroll: scroll 100s linear infinite;
 
   @keyframes scroll {
     0% {
@@ -61,4 +62,9 @@
       transform: translateX(-50%);
     }
   }
+}
+
+/* Project gallery override: faster scroll */
+.project-animate {
+  animation-duration: 30s;
 }

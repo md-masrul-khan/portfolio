@@ -12,11 +12,25 @@ const { resume } = Astro.props;
 <Section text="Resume" href="resume">
   <div class="rounded-xl border border-neutral/20 bg-black p-6">
     {resume?.file ? (
-      <a href={resume.file} class="hover:underline" download>
-        Download Resume
+      <a
+        href={resume.file}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open resume in new tab"
+        class="inline-flex rounded-full bg-primary px-6 py-3 text-sm font-medium text-white transition hover:opacity-90"
+      >
+        See and Download Resume
       </a>
     ) : resume?.link ? (
-      <a href={resume.link} target="_blank" class="hover:underline">View Resume</a>
+      <a
+        href={resume.link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label="Open resume in new tab"
+        class="inline-flex items-center gap-2 rounded-full border border-primary/40 bg-transparent px-5 py-3 text-sm font-medium text-primary transition hover:bg-primary/10"
+      >
+        See Resume
+      </a>
     ) : (
       <p class="text-neutral">Resume not available.</p>
     )}

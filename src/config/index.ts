@@ -163,6 +163,13 @@ export const SITE_CONTENT: SiteContent = {
   ],
   research: [
     {
+      title: "Vision-Based Manipulator Control using ROS2 tools",
+      summary: "Image-based visual servoing for robotic manipulators using ROS2 and OpenCV.",
+      link: "https://doi.org/10.1155/joro/9230273",
+      venue: "Journal of Robotics",
+      year: "2026",
+    },
+    {
       title: "Terrain Classification for Planetary Rovers",
       summary: "Terrain classification for planetary rovers using Wireless In-Wheel Sensor Modules and Machine Learning.",
       link: "https://doi.org/10.1002/rob.70124",
@@ -170,12 +177,13 @@ export const SITE_CONTENT: SiteContent = {
       year: "2025",
     },
     {
-      title: "Vision-Based Manipulator Control using ROS2 tools",
-      summary: "Image-based visual servoing for robotic manipulators using ROS2 and OpenCV.",
-      link: "",
-      venue: "accepted at journal of robotics, wely",
-      year: "",
+      title: "Technical Design Report of Hangor 1.0,An Autonomous Underwater Vehicle",
+      summary: "Designed and fabricated from the ground up, Hangor is BengalSub's first autonomous underwater vehicle, showcasing resilient engineering, modular design, and autonomous underwater capabilities at RoboSub 2025.",
+      link: "https://robonation.org/app/uploads/sites/4/2025/07/RS25_TDR_Tech-Autocrats-BengalSub-compressed.pdf",
+      venue: "Robonation RoboSub 2025",
+      year: "2025",
     },
+    
     {
       title: "Study asistant interaction humanoid robot NAO",
       summary: "Working on implementing LLM-based conversational AI for NAO humanoid robot to assist in educational settings.",
@@ -238,9 +246,23 @@ export const SITE_CONTENT: SiteContent = {
     },
   ],
   gallery: [
-    { image: "/spotifu.png", title: "ASV Prototype", caption: "Autonomous Surface Vehicle prototype", link: "/" },
+    { image: "/project_images/BengalBoat/bijoy_tori.jpg", title: "ASV Prototype", caption: "Autonomous Surface Vehicle prototype", link: "/" },
     { image: "/project_images/BengalSub/hauv2_p3.jpg", caption: "Autonomous Underwater Vehicle", link: "/bengalsub" },
-    { image: "/clone-ig.png", title: "Mars Rover", caption: "Mars Rover platform", link: "/kuet_mars_rover" },
+    { image: "/project_images/kuet_mars_rover/DSC_6630.JPG", title: "Mars Rover", caption: "Mars Rover platform", link: "/kuet_mars_rover" },
+    { image: "/project_images/BengalBoat/iso2.jpg", title: "ASV Design", caption: "Autonomous Surface Vehicle prototype", link: "/" },
+    { image: "/project_images/BengalBoat/tori3.jpg", title: "ASV test run", caption: "Autonomous Surface Vehicle prototype", link: "/" },
+    { image: "/project_images/BengalBoat/ebox4.jpg", title: "ASV Electrical stack", caption: "Autonomous Surface Vehicle prototype", link: "/" },
+    { image: "/project_images/BengalBoat/team_bengalboat.jpg", title: "ASV Team", caption: "Autonomous Surface Vehicle prototype", link: "/" },
+    { image: "/project_images/BengalSub/hauv1_overview.svg", caption: "AUV overview", link: "/bengalsub" },
+    { image: "/project_images/BengalSub/HAUV1_render.png", caption: "AUV Hangor 1.0", link: "/bengalsub" },
+    { image: "/project_images/BengalSub/HAUV2_render.png", caption: "AUV Hangor 2.0", link: "/bengalsub" },
+    { image: "/project_images/BengalSub/our_team.jpeg", caption: "AUV Team", link: "/bengalsub" },
+    { image: "/project_images/BengalSub/hauv2.0_p1.jpeg", caption: "Autonomous Underwater Vehicle", link: "/bengalsub" },
+    { image: "/project_images/kuet_mars_rover/DSC_6670.JPG", title: "Mars Rover", caption: "Mars Rover platform", link: "/kuet_mars_rover" },
+    { image: "/project_images/kuet_mars_rover/mars_rover_design.jpg", title: "Mars Rover Design", caption: "Mars Rover platform", link: "/kuet_mars_rover" },
+    { image: "/project_images/kuet_mars_rover/durbar.jpg", title: "Mars Rover", caption: "Team in IRC, India", link: "/kuet_mars_rover" },
+    { image: "/project_images/kuet_mars_rover/SPROS_unLabelPhoto_4.jpg", title: "Mars Rover", caption: "Mars Rover soil testing bed", link: "/kuet_mars_rover" },
+    
   ],
   blogs: [
     {
@@ -251,7 +273,9 @@ export const SITE_CONTENT: SiteContent = {
     },
   ],
   resume: {
-    link: "https://drive.google.com/",
+    //file: "Md Masrul Khan Resume.pdf",
+    file: "https://drive.google.com/file/d/1gXI1IGgf2Jhxedp-wfzuQcN9LrMm4PSH/view?usp=sharing",
+    link: "https://drive.google.com/file/d/1gXI1IGgf2Jhxedp-wfzuQcN9LrMm4PSH/view?usp=sharing",
   },
   about: {
     description: `
